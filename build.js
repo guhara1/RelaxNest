@@ -14,7 +14,8 @@ const {
   eeatBlock,
   policyNotice,
   linkCards,
-  hero
+  hero,
+  pricing
 } = require("./templates/components");
 const REGIONS = require("./data/regions.json");
 
@@ -68,38 +69,7 @@ function buildHome() {
     alt: "RelaxNest 수도권 프리미엄 관리 공간 안내 이미지"
   })}
 
-  <section class="section">
-    <div class="wrap">
-      <span class="eyebrow">코스 시간으로 보는 기본 요금</span>
-      <h2>관리 시간 기준 기본 금액</h2>
-      <p class="lede">관리 시간(60·90·120분)을 기준으로 정리한 기본 금액입니다. 표시되지 않은 별도 비용을 두지 않는 것을 원칙으로 안내합니다.</p>
-      <div class="pricing" style="margin-top:var(--sp-5)">
-        <div class="price-card">
-          <h3>60분 코스</h3>
-          <div class="price-amount">90,000<span class="won">원</span></div>
-          <div class="price-min">60분</div>
-          <p class="price-desc">핵심 부위 위주 가벼운 이완</p>
-          <a class="btn btn-ghost" href="/contact/">예약 문의</a>
-        </div>
-        <div class="price-card price-card--featured">
-          <span class="price-badge">추천</span>
-          <h3>90분 코스</h3>
-          <div class="price-amount">150,000<span class="won">원</span></div>
-          <div class="price-min">90분</div>
-          <p class="price-desc">전신 균형 표준 구성·아로마 포함</p>
-          <a class="btn btn-gold" href="/contact/">예약 문의</a>
-        </div>
-        <div class="price-card">
-          <h3>120분 코스</h3>
-          <div class="price-amount">180,000<span class="won">원</span></div>
-          <div class="price-min">120분</div>
-          <p class="price-desc">구석구석 집중하는 프리미엄 구성</p>
-          <a class="btn btn-ghost" href="/contact/">예약 문의</a>
-        </div>
-      </div>
-      <p class="price-desc" style="text-align:center;margin-top:var(--sp-4)">방문 지역과 시간대, 이동 거리에 따라 최종 금액은 통화 시 확정됩니다. <a href="/check/travel-fee/">요금·예약 기준 자세히 보기 →</a></p>
-    </div>
-  </section>
+  ${pricing()}
 
   <section class="section section--tight">
     <div class="wrap">
@@ -197,6 +167,8 @@ function buildRegions() {
 
     ${linkCards(`${r.name} 행정구역별 안내`, "구·시군별 바로가기", districtCards)}
 
+    ${pricing()}
+
     ${linkCards(`${r.name} 핵심 생활권`, "생활권별 안내", lifeCards)}
 
     ${policyNotice()}
@@ -251,6 +223,8 @@ function buildRegions() {
           </div>
         </div>
       </section>
+
+      ${pricing()}
 
       ${linkCards("관련 지역 더 보기", "내부 링크", [
         { url: `/${r.slug}/`, title: `${r.name} 전체 보기`, desc: `${r.name} 시군·구·생활권 허브로 이동` },
@@ -346,6 +320,8 @@ function buildDistrict(r, d) {
 
   ${dongCards.length ? linkCards(`${d.name} 행정동 바로가기`, "행정동별 안내", dongCards) : ""}
 
+  ${pricing()}
+
   ${linkCards("관련 안내", "내부 링크", [
     { url: `/${r.slug}/`, title: `${r.name} 전체 보기`, desc: `${r.name} 구·시군·생활권 허브` },
     { url: "/use/", title: "이용 장소별 안내", desc: "자택·호텔·오피스텔·업무지구 기준" },
@@ -401,6 +377,7 @@ function buildDistrict(r, d) {
         </div>
       </div>
     </section>
+    ${pricing()}
     ${linkCards("관련 안내", "내부 링크", [
       { url: base, title: `${d.name} 전체 보기`, desc: `${d.name} 행정동·생활권 안내` },
       { url: `/${r.slug}/`, title: `${r.name} 전체 보기`, desc: `${r.name} 구·시군 허브` },
