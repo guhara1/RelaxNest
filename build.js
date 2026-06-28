@@ -24,6 +24,21 @@ REGIONS.seoul.districts = require("./data/seoul-districts.json");
 REGIONS.gyeonggi.districts = require("./data/gyeonggi-districts.json");
 REGIONS.incheon.districts = require("./data/incheon-districts.json");
 
+// 지하철역(역세권) 데이터 부착
+REGIONS.seoul.stations = require("./data/seoul-stations.json");
+REGIONS.gyeonggi.stations = require("./data/gyeonggi-stations.json");
+REGIONS.incheon.stations = require("./data/incheon-stations.json");
+
+// 슬러그→이름 조회용 맵
+function districtName(r, slug) {
+  const d = (r.districts || []).find((x) => x.slug === slug);
+  return d ? d.name : null;
+}
+function lifeName(r, slug) {
+  const l = (r.life || []).find((x) => x.slug === slug);
+  return l ? l.name : null;
+}
+
 const DIST = path.join(__dirname, "dist");
 const pages = []; // {url, title, description, body, breadcrumb, faq, noindex}
 
@@ -171,6 +186,12 @@ function buildRegions() {
 
     ${linkCards(`${r.name} 핵심 생활권`, "생활권별 안내", lifeCards)}
 
+    ${linkCards(`${r.name} 주요 지하철역`, "역세권별 안내", (r.stations || []).slice(0, 6).map((s) => ({
+      url: `/${r.slug}/station/${s.slug}/`,
+      title: `${s.name} 출장마사지`,
+      desc: `${s.lines} · ${s.focus}`
+    })).concat([{ url: `/${r.slug}/station/`, title: `${r.name} 역세권 전체`, desc: "주요 지하철역 역세권 안내 모음" }]))}
+
     ${policyNotice()}
     ${faqBlock(hubFaq)}
     ${eeatBlock()}`;
@@ -252,6 +273,193 @@ function buildRegions() {
 
     // 행정구(구/시군/구군) + 행정동 페이지
     r.districts.forEach((d) => buildDistrict(r, d));
+
+    // 지하철역(역세권) 허브 + 개별 페이지
+    buildStations(r);
+  });
+}
+
+/* 경기 일반구 (시 → 일반구) 허브 페이지 (색인 대상) */
+const GYEONGGI_SUBGU = require("./data/gyeonggi-subgu.json");
+function subGuCards(r, d) {
+  if (r.slug !== "gyeonggi") return [];
+  const entry = GYEONGGI_SUBGU.find((e) => e.city === d.slug);
+  if (!entry) return [];
+  return entry.gu.map((g) => ({
+    url: `/gyeonggi/${d.slug}/${g.slug}/`,
+    title: `${g.name} 출장마사지`,
+    desc: `${g.focus} · ${g.stations}`
+  }));
+}
+function buildSubGu() {
+  const r = REGIONS.gyeonggi;
+  GYEONGGI_SUBGU.forEach((entry) => {
+    const cityName = districtName(r, entry.city);
+    if (!cityName) return;
+    entry.gu.forEach((g) => {
+      const base = `/gyeonggi/${entry.city}/${g.slug}/`;
+      const crumbs = [
+        { name: "수도권 홈", url: "/" },
+        { name: "경기", url: "/gyeonggi/" },
+        { name: cityName, url: `/gyeonggi/${entry.city}/` },
+        { name: g.name, url: base }
+      ];
+      const dongLinks = (g.dongs || []).map((d) => ({
+        url: `/gyeonggi/${entry.city}/${d.slug}/`,
+        title: `${d.name} 출장마사지`,
+        desc: `${g.name} ${d.name} 방문 전 확인 안내`
+      }));
+      const gFaq = [
+        { q: `${cityName} ${g.name}도 방문 가능한가요?`, a: `${g.name} 전역과 인접 권역을 기준으로 정확한 방문 주소와 가까운 역을 확인한 뒤 안내합니다.` },
+        { q: `${g.name}에서 무엇을 먼저 확인해야 하나요?`, a: `${g.focus} 중심 권역으로 건물 출입 방식과 이용 장소(자택·호텔·오피스텔) 정책을 먼저 확인하면 좋습니다.` },
+        { q: "불법·선정적 서비스도 가능한가요?", a: "불법·선정적 서비스는 제공하거나 안내하지 않습니다." }
+      ];
+      addPage({
+        url: base,
+        title: `${cityName} ${g.name} 출장마사지｜행정동별 예약 안내 · ${SITE.name}`,
+        description: `${cityName} ${g.name} ${g.focus} 행정동·역세권 예약 전 확인 안내`.slice(0, 80),
+        body: `
+        ${breadcrumb(crumbs)}
+        ${hero({
+          eyebrow: `경기 ${cityName} · ${g.focus}`,
+          h1: `${cityName} ${g.name} 출장마사지 · 행정동별 예약 안내`,
+          lede: g.char,
+          cta: `<a class="btn btn-gold" href="/contact/">예약 문의</a><a class="btn btn-ghost" href="/gyeonggi/${entry.city}/">${cityName} 전체</a>`,
+          alt: `${cityName} ${g.name} 방문형 관리 안내 이미지`
+        })}
+        <section class="section section--tight">
+          <div class="wrap">
+            <div class="prose">
+              <h2>${cityName} ${g.name} 개요</h2>
+              <p>${g.char} 가까운 역은 ${g.stations}입니다. 번호동은 대표 행정동으로 묶어 안내하며, 출구별·노선별 페이지는 만들지 않습니다.</p>
+              <h2>이용 장소별 확인사항</h2>
+              <p>${g.focus} 중심 권역으로, 자택은 공동현관 출입 방식, 오피스텔은 관리 규정과 방문 가능 시간, 호텔·숙소는 객실 출입 정책을 확인하세요.</p>
+              <h2>예약 전 체크리스트</h2>
+              <ul>
+                <li>정확한 방문 주소와 동·호수</li>
+                <li>공동현관·건물 출입 방식</li>
+                <li>이용 장소(자택·호텔·오피스텔) 정책</li>
+                <li><a href="/check/travel-fee/">추가 이동비 기준</a> · <a href="/check/privacy/">개인정보 처리 기준</a></li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        ${dongLinks.length ? linkCards(`${g.name} 행정동 바로가기`, "행정동별 안내", dongLinks) : ""}
+        ${pricing()}
+        ${linkCards("관련 안내", "내부 링크", [
+          { url: `/gyeonggi/${entry.city}/`, title: `${cityName} 전체 보기`, desc: `${cityName} 행정동·생활권 허브` },
+          { url: "/gyeonggi/", title: "경기 전체 보기", desc: "경기 시군·생활권 허브" },
+          { url: "/check/", title: "예약 전 확인", desc: "방문 주소·이동비·개인정보 기준" }
+        ])}
+        ${policyNotice()}
+        ${faqBlock(gFaq)}
+        ${eeatBlock({
+          who: `이 페이지는 ${SITE.author}가 작성하고 ${SITE.reviewer}가 검수합니다.`,
+          how: `${cityName} ${g.name}의 공식 행정구역, ${g.stations} 등 가까운 역, ${g.focus} 중심 이용 장소 기준으로 구성했습니다.`,
+          why: `${cityName} ${g.name}에서 방문형 서비스를 찾는 사용자가 행정동·이동 기준을 안전하게 확인할 수 있도록 작성했습니다.`
+        })}`,
+        faq: gFaq,
+        breadcrumb: crumbs
+      });
+    });
+  });
+}
+
+/* 지하철역 허브 + 개별 역세권 페이지 (색인 대상) */
+function buildStations(r) {
+  const base = `/${r.slug}/station/`;
+  const stations = r.stations || [];
+  const crumbs = [
+    { name: "수도권 홈", url: "/" },
+    { name: r.name, url: `/${r.slug}/` },
+    { name: "지하철역", url: base }
+  ];
+
+  // 허브
+  addPage({
+    url: base,
+    title: `${r.name} 지하철역 출장마사지｜역세권별 예약 안내 · ${SITE.name}`,
+    description: `${r.name} 강남역·수원역·부평역 등 주요 지하철역 역세권 예약 안내`.slice(0, 80),
+    body: `
+    ${breadcrumb(crumbs)}
+    ${hero({
+      eyebrow: `${r.name} 역세권 안내`,
+      h1: `${r.name} 지하철역 출장마사지 · 역세권별 예약 안내`,
+      lede: `${r.name} 주요 지하철역을 기준으로 가까운 행정구·생활권과 이용 장소별 확인사항을 안내합니다. 출구별·노선별로 페이지를 나누지 않고 역명 기준으로 정리합니다.`,
+      cta: `<a class="btn btn-gold" href="/contact/">예약 문의</a><a class="btn btn-ghost" href="/${r.slug}/">${r.name} 전체</a>`,
+      alt: `${r.name} 역세권 방문형 관리 안내 이미지`
+    })}
+    ${linkCards(`${r.name} 주요 역세권`, "지하철역별 안내", stations.map((s) => ({
+      url: `${base}${s.slug}/`,
+      title: `${s.name} 출장마사지`,
+      desc: `${s.lines} · ${s.focus}`
+    })))}
+    ${pricing()}
+    ${policyNotice()}
+    ${eeatBlock()}`,
+    breadcrumb: crumbs
+  });
+
+  // 개별 역
+  stations.forEach((s) => {
+    const sc = [...crumbs, { name: s.name, url: `${base}${s.slug}/` }];
+    const dName = s.district ? districtName(r, s.district) : null;
+    const lName = s.life ? lifeName(r, s.life) : null;
+    const sFaq = [
+      { q: `${s.name} 근처도 방문 가능한가요?`, a: `${s.name} 역세권과 인접 권역을 기준으로 정확한 방문 주소와 가까운 출입구를 확인한 뒤 안내합니다.` },
+      { q: "출구별로 안내가 다른가요?", a: "출구별·노선별로 페이지를 나누지 않고 역명 기준으로 안내하며, 정확한 건물 주소와 가까운 출입구를 공유하면 이동이 원활합니다." },
+      { q: "불법·선정적 서비스도 가능한가요?", a: "불법·선정적 서비스는 제공하거나 안내하지 않습니다." }
+    ];
+    const related = [];
+    if (dName) related.push({ url: `/${r.slug}/${s.district}/`, title: `${dName} 전체 보기`, desc: `${dName} 행정동·생활권 안내` });
+    if (lName) related.push({ url: `/${r.slug}/life/${s.life}/`, title: `${lName} 생활권`, desc: `${lName} 생활권 예약 안내` });
+    related.push({ url: base, title: `${r.name} 역세권 전체`, desc: `${r.name} 주요 지하철역 모음` });
+
+    addPage({
+      url: `${base}${s.slug}/`,
+      title: `${s.name} 출장마사지｜${r.name} 역세권 예약 안내 · ${SITE.name}`,
+      description: `${s.name}(${s.lines}) ${s.focus} 역세권 방문형 관리 예약 전 확인 안내`.slice(0, 80),
+      body: `
+      ${breadcrumb(sc)}
+      ${hero({
+        eyebrow: `${r.name} · ${s.lines}`,
+        h1: `${s.name} 출장마사지 · 역세권 예약 안내`,
+        lede: s.char,
+        cta: `<a class="btn btn-gold" href="/contact/">예약 문의</a><a class="btn btn-ghost" href="${base}">${r.name} 역세권</a>`,
+        alt: `${s.name} 역세권 방문형 관리 안내 이미지`
+      })}
+      <section class="section section--tight">
+        <div class="wrap">
+          <div class="prose">
+            <h2>${s.name} 역세권 개요</h2>
+            <p>${s.char} ${dName ? `행정구역상 <a href="/${r.slug}/${s.district}/">${dName}</a>에 속하며` : ""} ${lName ? `<a href="/${r.slug}/life/${s.life}/">${lName} 생활권</a>과 인접해 있습니다.` : "인접 생활권과 함께 확인하면 좋습니다."}</p>
+            <h2>이용 장소별 확인사항</h2>
+            <p>${s.focus} 성격의 역세권으로, 자택은 공동현관 출입 방식, 오피스텔은 관리 규정과 방문 가능 시간, 호텔·숙소는 객실 출입 정책을 확인하세요. 업무지구가 포함된 경우 방문자 등록 절차와 출입 가능 시간을 함께 확인합니다.</p>
+            <h2>출구·환승 안내</h2>
+            <p>${s.name}은 출구별·노선별로 페이지를 나누지 않고 역명 기준으로 안내합니다. 환승역의 경우 동선이 넓어 정확한 방문 주소와 가까운 출입구를 함께 공유하면 이동이 원활합니다.</p>
+            <h2>예약 전 체크리스트</h2>
+            <ul>
+              <li>정확한 방문 주소와 동·호수</li>
+              <li>가까운 출입구와 건물 위치</li>
+              <li>이용 장소(자택·호텔·오피스텔) 정책</li>
+              <li>예약 가능 시간과 변경 기준</li>
+              <li><a href="/check/privacy/">개인정보 처리 기준</a> 확인</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      ${pricing()}
+      ${linkCards("관련 안내", "내부 링크", related)}
+      ${policyNotice()}
+      ${faqBlock(sFaq)}
+      ${eeatBlock({
+        who: `이 페이지는 ${SITE.author}가 작성하고 ${SITE.reviewer}가 검수합니다.`,
+        how: `${s.name}(${s.lines}) 역세권을 기준으로 가까운 행정구·생활권과 ${s.focus} 중심 이용 장소 기준으로 구성했습니다.`,
+        why: `${s.name} 인근에서 방문형 서비스를 찾는 사용자가 역세권 이동 기준을 안전하게 확인할 수 있도록 작성했습니다.`
+      })}`,
+      faq: sFaq,
+      breadcrumb: sc
+    });
   });
 }
 
@@ -317,6 +525,8 @@ function buildDistrict(r, d) {
       </div>
     </div>
   </section>
+
+  ${subGuCards(r, d).length ? linkCards(`${d.name} 일반구별 안내`, "일반구 바로가기", subGuCards(r, d)) : ""}
 
   ${dongCards.length ? linkCards(`${d.name} 행정동 바로가기`, "행정동별 안내", dongCards) : ""}
 
@@ -590,6 +800,7 @@ function writeAll() {
 /* ---------- run ---------- */
 buildHome();
 buildRegions();
+buildSubGu();
 buildSimpleSet(
   USE_CASES,
   "/use/",

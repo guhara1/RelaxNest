@@ -1,0 +1,22 @@
+[
+  { "name": "부평역", "slug": "bupyeong-station", "lines": "1호선·인천1호선", "focus": "역세권·상권", "district": "bupyeong-gu", "life": "bupyeong-station-market",
+    "char": "부평역은 1호선·인천1호선 환승역으로 인천 최대급 상권 역세권입니다. 환승 수요가 많고 상권·주거가 밀집해 정확한 건물 위치 공유가 특히 중요합니다." },
+  { "name": "주안역", "slug": "juan-station", "lines": "1호선·인천2호선", "focus": "원도심·역세권", "district": "michuhol-gu", "life": "juan-dohwa",
+    "char": "주안역은 1호선·인천2호선 환승역으로 미추홀구 원도심 상권의 중심입니다. 상권과 주거가 섞여 있어 이용 장소별 확인 내용이 다릅니다." },
+  { "name": "인천시청역", "slug": "incheon-cityhall-station", "lines": "인천1호선·인천2호선", "focus": "행정·업무·상권", "district": "namdong-gu", "life": "guwol-incheon-cityhall",
+    "char": "인천시청역은 인천1·2호선 환승역으로 행정·업무·상권의 중심입니다. 시청 일대 업무 시설과 구월동 상권의 이용 장소별 확인 내용이 다릅니다." },
+  { "name": "인천대입구역", "slug": "incheon-univ-station", "lines": "인천1호선", "focus": "신도시·오피스텔", "district": "yeonsu-gu", "life": "songdo-international-city",
+    "char": "인천대입구역은 송도국제도시의 중심 역세권으로 고층 오피스텔과 업무 시설이 밀집해 있습니다. 보안 출입과 카드키 절차 확인이 중요합니다." },
+  { "name": "계산역", "slug": "gyesan-station", "lines": "인천1호선", "focus": "주거·상권", "district": "gyeyang-gu", "life": "gyesan-jakjeon",
+    "char": "계산역은 계양구 계산 상권과 주거단지의 중심 역세권입니다. 아파트 단지와 빌라가 섞여 있어 정확한 주소와 공동현관 출입 방식 확인이 필요합니다." },
+  { "name": "작전역", "slug": "jakjeon-station", "lines": "인천1호선", "focus": "주거", "district": "gyeyang-gu", "life": "gyesan-jakjeon",
+    "char": "작전역은 계양구 작전·효성 주거 권역의 중심 역세권입니다. 대단지와 빌라가 섞여 있어 정확한 단지·동·호수와 출입 방식 확인이 중요합니다." },
+  { "name": "청라국제도시역", "slug": "cheongna-station", "lines": "공항철도", "focus": "신도시·주거", "district": "seo-gu", "life": "cheongna-international-city",
+    "char": "청라국제도시역은 청라 신도시의 관문 역세권입니다. 넓은 블록 구조로 같은 청라라도 위치 차이가 크므로 정확한 단지명과 동·호수 확인이 중요합니다." },
+  { "name": "동인천역", "slug": "dongincheon-station", "lines": "1호선", "focus": "원도심·상권", "district": "dong-gu",
+    "char": "동인천역은 인천 원도심 상권의 중심 역세권입니다. 노후 주거지와 골목 상권이 많아 정확한 건물 위치와 출입 방식 확인이 이동에 도움이 됩니다." },
+  { "name": "검단오류역", "slug": "geomdan-oryu-station", "lines": "인천2호선", "focus": "신도시·주거", "district": "seo-gu", "life": "geomdan-newtown",
+    "char": "검단오류역은 검단신도시 입주권의 중심 역세권입니다. 신축 단지가 계속 늘어 같은 검단이라도 위치 차이가 크므로 단지명·동·호수 확인이 중요합니다." },
+  { "name": "인천공항1터미널역", "slug": "incheon-airport-t1-station", "lines": "공항철도", "focus": "공항·숙소", "district": "jung-gu", "life": "yeongjong-airport",
+    "char": "인천공항1터미널역은 공항과 인접 호텔·숙소권의 중심입니다. 공항 인접 숙소는 출입 절차가 엄격할 수 있어 사전 예약과 객실 출입 정책 확인이 필요합니다." }
+]
