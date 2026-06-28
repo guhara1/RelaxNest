@@ -1,0 +1,10 @@
+{
+  "name": "relaxnest",
+  "version": "0.1.0",
+  "private": true,
+  "description": "RelaxNest · 서울·경기·인천 출장마사지 수도권 지역 안내 정적 사이트",
+  "scripts": {
+    "build": "node build.js",
+    "serve": "node build.js && cd dist && python3 -m http.server 8080"
+  }
+}

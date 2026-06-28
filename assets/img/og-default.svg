@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b111e"/>
+      <stop offset="1" stop-color="#080c16"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f0d9a6"/>
+      <stop offset="1" stop-color="#b8924d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="600" cy="-40" r="320" fill="#d4af6a" opacity="0.10"/>
+  <g transform="translate(100,250)">
+    <circle cx="12" cy="-8" r="12" fill="url(#gold)"/>
+    <text x="36" y="0" font-family="Pretendard, sans-serif" font-size="34" font-weight="800" fill="#ffffff">RelaxNest</text>
+    <text x="0" y="70" font-family="Pretendard, sans-serif" font-size="56" font-weight="800" fill="#ffffff">서울·경기·인천 출장마사지</text>
+    <text x="0" y="135" font-family="Pretendard, sans-serif" font-size="40" font-weight="700" fill="url(#gold)">수도권 지역별 예약 안내</text>
+    <text x="0" y="200" font-family="Pretendard, sans-serif" font-size="28" font-weight="600" fill="#9aa4b5">생활권 · 지하철역 · 이용 장소별 예약 전 확인</text>
+  </g>
+</svg>

@@ -1,0 +1,113 @@
+/* =========================================================================
+   RelaxNest · Design Tokens
+   프리미엄 팔레트 (다크 네이비 + 골드) · Pretendard 기반
+   기존 토큰 시스템을 프리미엄 팔레트로 교체
+   ========================================================================= */
+
+/* Pretendard (가변 폰트) */
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2")
+    format("woff2-variations");
+}
+
+:root {
+  /* ---- 브랜드 코어 팔레트 ---- */
+  --c-navy-900: #080c16;   /* 최심부 배경 */
+  --c-navy-850: #0b111e;
+  --c-navy-800: #0e1424;   /* 기본 배경 */
+  --c-navy-700: #131b2e;   /* 카드 배경 */
+  --c-navy-600: #1a2438;   /* 카드 hover / 보더 */
+  --c-navy-500: #243150;
+
+  /* 골드 (프리미엄 액센트) */
+  --c-gold-300: #f0d9a6;
+  --c-gold-400: #e3c789;
+  --c-gold-500: #d4af6a;   /* 메인 골드 */
+  --c-gold-600: #b8924d;
+
+  /* 오렌지 (CTA · 푸터 문의 버튼) */
+  --c-orange-400: #ff8a3d;
+  --c-orange-500: #ff7a1a;
+  --c-orange-600: #f26500;
+
+  /* 중립 */
+  --c-white: #ffffff;
+  --c-ink-100: #eef1f6;
+  --c-ink-300: #c2cad8;
+  --c-ink-400: #9aa4b5;   /* 보조 텍스트 */
+  --c-ink-500: #6f7a8d;
+  --c-line: rgba(212, 175, 106, 0.14);
+  --c-line-soft: rgba(255, 255, 255, 0.06);
+
+  /* ---- 시맨틱 토큰 ---- */
+  --bg-base: var(--c-navy-800);
+  --bg-deep: var(--c-navy-900);
+  --bg-surface: var(--c-navy-700);
+  --bg-surface-hi: var(--c-navy-600);
+  --text-strong: var(--c-white);
+  --text-base: var(--c-ink-300);
+  --text-muted: var(--c-ink-400);
+  --accent: var(--c-gold-500);
+  --accent-soft: var(--c-gold-400);
+  --cta: var(--c-orange-500);
+
+  /* ---- 그라디언트 / 오버레이 ---- */
+  --grad-gold: linear-gradient(135deg, var(--c-gold-300), var(--c-gold-600));
+  --grad-orange: linear-gradient(135deg, var(--c-orange-400), var(--c-orange-600));
+  --grad-surface: linear-gradient(160deg, var(--c-navy-700), var(--c-navy-850));
+  --grad-hero: radial-gradient(
+      1200px 600px at 50% -10%,
+      rgba(212, 175, 106, 0.12),
+      transparent 60%
+    ),
+    linear-gradient(180deg, var(--c-navy-850), var(--c-navy-900));
+  --overlay-card: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.03),
+    rgba(255, 255, 255, 0)
+  );
+
+  /* ---- 타이포 ---- */
+  --font-sans: "Pretendard Variable", "Pretendard", -apple-system,
+    BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, "Apple SD Gothic Neo",
+    "Noto Sans KR", sans-serif;
+
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.25rem;
+  --fs-4xl: 3rem;
+
+  --lh-tight: 1.25;
+  --lh-base: 1.7;
+
+  /* ---- 간격 / 라운드 / 그림자 ---- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4.5rem;
+
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+
+  --shadow-card: 0 18px 40px -24px rgba(0, 0, 0, 0.8);
+  --shadow-pop: 0 24px 60px -20px rgba(0, 0, 0, 0.85);
+  --shadow-gold: 0 14px 36px -16px rgba(212, 175, 106, 0.45);
+  --shadow-orange: 0 14px 30px -14px rgba(255, 122, 26, 0.5);
+
+  --maxw: 1120px;
+  --header-h: 68px;
+}
