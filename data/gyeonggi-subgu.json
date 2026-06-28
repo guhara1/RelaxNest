@@ -1,65 +1,167 @@
 [
   { "city": "suwon", "gu": [
-    { "name": "장안구", "slug": "jangan-gu", "focus": "주거·행정", "stations": "성균관대역·화서역",
+    { "name": "장안구", "slug": "jangan-gu", "focus": "주거·행정", "stations": "화서역·성균관대역",
       "char": "장안구는 수원 북부의 주거·행정 권역으로 화서·정자 일대 아파트 단지가 많습니다. 단지별 방문 절차와 공동현관 출입 방식을 미리 확인하는 것이 좋습니다.",
-      "dongs": [ { "name": "정자동", "slug": "jeongja-dong" } ] },
+      "dongs": [
+        { "name": "정자동", "slug": "jeongja-dong", "station": "화서역", "type": "주거" },
+        { "name": "영화동", "slug": "yeonghwa-dong", "station": "수원역", "type": "주거" },
+        { "name": "조원동", "slug": "jowon-dong", "station": "성균관대역", "type": "주거" },
+        { "name": "파장동", "slug": "pajang-dong", "station": "성균관대역", "type": "주거" },
+        { "name": "율천동", "slug": "yulcheon-dong", "station": "성균관대역", "type": "대학가·주거" }
+      ] },
     { "name": "권선구", "slug": "gwonseon-gu", "focus": "주거·상권", "stations": "수원시청역·매교역",
       "char": "권선구는 수원시청 일대 상권과 주거단지가 결합된 권역입니다. 시청 인근 업무 시설과 배후 주거단지의 이용 장소별 확인 내용이 다릅니다.",
-      "dongs": [ { "name": "권선동", "slug": "gwonseon-dong" } ] },
-    { "name": "팔달구", "slug": "paldal-gu", "focus": "업무·상권", "stations": "매교역·수원역",
-      "char": "팔달구는 인계동 업무권과 수원역 상권을 아우르는 수원 중심 권역입니다. 업무 시설과 상권 오피스텔이 많아 출입 절차와 관리 규정 확인이 중요합니다.",
-      "dongs": [ { "name": "인계동", "slug": "ingye-dong" } ] },
+      "dongs": [
+        { "name": "권선동", "slug": "gwonseon-dong", "station": "수원시청역", "type": "주거·상권" },
+        { "name": "세류동", "slug": "seryu-dong", "station": "세류역", "type": "주거" },
+        { "name": "곡선동", "slug": "gokseon-dong", "station": "수원시청역", "type": "주거" },
+        { "name": "금곡동", "slug": "geumgok-dong", "station": "호매실", "type": "신도시·주거" },
+        { "name": "호매실동", "slug": "homaesil-dong", "station": "호매실", "type": "신도시·주거" }
+      ] },
+    { "name": "팔달구", "slug": "paldal-gu", "focus": "업무·상권·원도심", "stations": "매교역·수원역",
+      "char": "팔달구는 인계동 업무권과 수원역·행궁동 상권을 아우르는 수원 중심 권역입니다. 업무 시설과 상권 오피스텔이 많아 출입 절차와 관리 규정 확인이 중요합니다.",
+      "dongs": [
+        { "name": "인계동", "slug": "ingye-dong", "station": "매교역", "type": "업무·상권" },
+        { "name": "행궁동", "slug": "haenggung-dong", "station": "수원역", "type": "원도심·관광" },
+        { "name": "매산동", "slug": "maesan-dong", "station": "수원역", "type": "역세권·상권" },
+        { "name": "우만동", "slug": "uman-dong", "station": "수원역", "type": "주거" },
+        { "name": "화서동", "slug": "hwaseo-dong", "station": "화서역", "type": "주거" }
+      ] },
     { "name": "영통구", "slug": "yeongtong-gu", "focus": "신도시·업무·주거", "stations": "영통역·광교중앙역",
       "char": "영통구는 광교신도시와 영통 대단지 주거가 결합된 권역입니다. 고층 오피스텔·업무 빌딩은 보안 출입을, 주거단지는 방문 절차를 확인하는 것이 좋습니다.",
-      "dongs": [ { "name": "영통동", "slug": "yeongtong-dong" }, { "name": "광교동", "slug": "gwanggyo-dong" }, { "name": "매탄동", "slug": "maetan-dong" }, { "name": "망포동", "slug": "mangpo-dong" } ] }
+      "dongs": [
+        { "name": "영통동", "slug": "yeongtong-dong", "station": "영통역", "type": "주거·업무" },
+        { "name": "매탄동", "slug": "maetan-dong", "station": "매탄권선역", "type": "주거" },
+        { "name": "원천동", "slug": "woncheon-dong", "station": "아주대", "type": "대학가·주거" },
+        { "name": "광교동", "slug": "gwanggyo-dong", "station": "광교중앙역", "type": "신도시·업무" },
+        { "name": "망포동", "slug": "mangpo-dong", "station": "망포역", "type": "주거" }
+      ] }
   ] },
   { "city": "seongnam", "gu": [
     { "name": "수정구", "slug": "sujeong-gu", "focus": "주거·역세권", "stations": "신흥역·수진역·복정역",
       "char": "수정구는 성남 구도심 주거와 위례신도시 일부가 포함된 권역입니다. 구도심 빌라와 신도시 단지의 이용 장소별 확인 내용이 달라 사전 확인이 필요합니다.",
-      "dongs": [ { "name": "신흥동", "slug": "sinheung-dong" } ] },
-    { "name": "중원구", "slug": "jungwon-gu", "focus": "주거·산업", "stations": "모란역·중원역",
-      "char": "중원구는 성남 구도심 주거와 산업단지가 결합된 권역입니다. 차량 이동이 잦은 권역이라 정확한 방문 주소와 건물 출입 방식 확인이 중요합니다.",
-      "dongs": [] },
+      "dongs": [
+        { "name": "신흥동", "slug": "sinheung-dong", "station": "신흥역", "type": "주거·상권" },
+        { "name": "태평동", "slug": "taepyeong-dong", "station": "가천대역", "type": "주거" },
+        { "name": "수진동", "slug": "sujin-dong", "station": "수진역", "type": "주거" },
+        { "name": "단대동", "slug": "dandae-dong", "station": "단대오거리역", "type": "주거" },
+        { "name": "복정동", "slug": "bokjeong-dong", "station": "복정역", "type": "역세권·신도시" }
+      ] },
+    { "name": "중원구", "slug": "jungwon-gu", "focus": "주거·산업·상권", "stations": "모란역·신흥역",
+      "char": "중원구는 성남 구도심 상권과 주거, 산업단지가 결합된 권역입니다. 모란 상권과 배후 주거단지의 이용 장소별 확인 내용이 다릅니다.",
+      "dongs": [
+        { "name": "성남동", "slug": "seongnam-dong", "station": "모란역", "type": "상권·주거" },
+        { "name": "금광동", "slug": "geumgwang-dong", "station": "단대오거리역", "type": "주거" },
+        { "name": "은행동", "slug": "eunhaeng-dong", "station": "신흥역", "type": "주거" },
+        { "name": "상대원동", "slug": "sangdaewon-dong", "station": "모란역", "type": "산업·주거" },
+        { "name": "도촌동", "slug": "dochon-dong", "station": "모란역", "type": "주거" }
+      ] },
     { "name": "분당구", "slug": "bundang-gu", "focus": "업무·신도시·주거", "stations": "서현역·정자역·판교역",
       "char": "분당구는 분당신도시와 판교 IT 업무지구를 아우르는 성남 중심 권역입니다. 업무 빌딩은 보안 출입을, 신도시 주거단지는 방문 절차를 확인하는 것이 좋습니다.",
-      "dongs": [ { "name": "정자동", "slug": "jeongja-dong" }, { "name": "서현동", "slug": "seohyeon-dong" }, { "name": "수내동", "slug": "sunae-dong" }, { "name": "판교동", "slug": "pangyo-dong" }, { "name": "야탑동", "slug": "yatap-dong" } ] }
+      "dongs": [
+        { "name": "정자동", "slug": "jeongja-dong", "station": "정자역", "type": "업무·주거" },
+        { "name": "서현동", "slug": "seohyeon-dong", "station": "서현역", "type": "상권·주거" },
+        { "name": "수내동", "slug": "sunae-dong", "station": "수내역", "type": "주거" },
+        { "name": "판교동", "slug": "pangyo-dong", "station": "판교역", "type": "업무·신도시" },
+        { "name": "삼평동", "slug": "sampyeong-dong", "station": "판교역", "type": "업무·오피스텔" },
+        { "name": "야탑동", "slug": "yatap-dong", "station": "야탑역", "type": "상권·주거" },
+        { "name": "이매동", "slug": "imae-dong", "station": "이매역", "type": "주거" },
+        { "name": "구미동", "slug": "gumi-dong", "station": "오리역", "type": "주거" }
+      ] }
   ] },
   { "city": "yongin", "gu": [
     { "name": "처인구", "slug": "cheoin-gu", "focus": "주거·외곽", "stations": "명지대역·용인중앙시장역",
       "char": "처인구는 용인 동부의 주거·외곽 권역으로 면적이 넓습니다. 이동 거리가 길 수 있어 정확한 방문 주소와 추가 이동 여부를 사전에 확인하는 것이 중요합니다.",
-      "dongs": [ { "name": "역북동", "slug": "yeokbuk-dong" } ] },
+      "dongs": [
+        { "name": "역북동", "slug": "yeokbuk-dong", "station": "명지대역", "type": "대학가·주거" },
+        { "name": "김량장동", "slug": "gimnyangjang-dong", "station": "용인중앙시장역", "type": "상권·주거" },
+        { "name": "삼가동", "slug": "samga-dong", "station": "삼가역", "type": "행정·주거" },
+        { "name": "포곡읍", "slug": "pogok-eup", "station": "차량 이동", "type": "주거·외곽" }
+      ] },
     { "name": "기흥구", "slug": "giheung-gu", "focus": "신도시·주거", "stations": "기흥역·동백역·보정역",
-      "char": "기흥구는 동백·보정 신도시 주거단지가 밀집한 권역입니다. 신축 대단지가 많아 같은 기흥이라도 단지명·동·호수 확인이 중요합니다.",
-      "dongs": [ { "name": "동백동", "slug": "dongbaek-dong" }, { "name": "보정동", "slug": "bojeong-dong" } ] },
+      "char": "기흥구는 동백·보정·신갈 신도시 주거단지가 밀집한 권역입니다. 신축 대단지가 많아 같은 기흥이라도 단지명·동·호수 확인이 중요합니다.",
+      "dongs": [
+        { "name": "동백동", "slug": "dongbaek-dong", "station": "초당역", "type": "신도시·주거" },
+        { "name": "보정동", "slug": "bojeong-dong", "station": "보정역", "type": "주거" },
+        { "name": "신갈동", "slug": "singal-dong", "station": "신갈역", "type": "주거" },
+        { "name": "구갈동", "slug": "gugal-dong", "station": "기흥역", "type": "주거" },
+        { "name": "영덕동", "slug": "yeongdeok-dong", "station": "영덕역", "type": "신도시·주거" }
+      ] },
     { "name": "수지구", "slug": "suji-gu", "focus": "신도시·주거", "stations": "수지구청역·죽전역·성복역",
       "char": "수지구는 분당과 인접한 용인 서부 대단지 주거 권역입니다. 신분당선 역세권 단지가 많고 도시 범위가 넓어 정확한 단지 위치 확인이 중요합니다.",
-      "dongs": [ { "name": "죽전동", "slug": "jukjeon-dong" }, { "name": "상현동", "slug": "sanghyeon-dong" }, { "name": "신봉동", "slug": "sinbong-dong" } ] }
+      "dongs": [
+        { "name": "죽전동", "slug": "jukjeon-dong", "station": "죽전역", "type": "주거·상권" },
+        { "name": "상현동", "slug": "sanghyeon-dong", "station": "상현역", "type": "주거" },
+        { "name": "신봉동", "slug": "sinbong-dong", "station": "성복역", "type": "주거" },
+        { "name": "풍덕천동", "slug": "pungdeokcheon-dong", "station": "수지구청역", "type": "상권·주거" },
+        { "name": "동천동", "slug": "dongcheon-dong", "station": "동천역", "type": "주거" }
+      ] }
   ] },
   { "city": "goyang", "gu": [
     { "name": "덕양구", "slug": "deogyang-gu", "focus": "주거·신도시", "stations": "화정역·행신역·삼송역",
       "char": "덕양구는 화정·행신·삼송 일대 주거단지가 밀집한 고양 동부 권역입니다. 구도심과 신축 단지가 섞여 있어 이용 장소별 확인 내용이 다릅니다.",
-      "dongs": [ { "name": "화정동", "slug": "hwajeong-dong" }, { "name": "행신동", "slug": "haengsin-dong" }, { "name": "삼송동", "slug": "samsong-dong" } ] },
+      "dongs": [
+        { "name": "화정동", "slug": "hwajeong-dong", "station": "화정역", "type": "주거·상권" },
+        { "name": "행신동", "slug": "haengsin-dong", "station": "행신역", "type": "주거" },
+        { "name": "삼송동", "slug": "samsong-dong", "station": "삼송역", "type": "신도시·주거" },
+        { "name": "원흥동", "slug": "wonheung-dong", "station": "원흥역", "type": "신도시·주거" },
+        { "name": "능곡동", "slug": "neunggok-dong", "station": "능곡역", "type": "주거" }
+      ] },
     { "name": "일산동구", "slug": "ilsandong-gu", "focus": "신도시·상권", "stations": "정발산역·마두역·백석역",
       "char": "일산동구는 일산신도시 동부 상권과 주거단지의 중심 권역입니다. 라페스타·웨스턴돔 상권과 대단지가 결합돼 있어 이용 장소별 확인 내용이 다릅니다.",
-      "dongs": [ { "name": "장항동", "slug": "janghang-dong" }, { "name": "마두동", "slug": "madu-dong" } ] },
+      "dongs": [
+        { "name": "장항동", "slug": "janghang-dong", "station": "정발산역", "type": "상권·주거" },
+        { "name": "마두동", "slug": "madu-dong", "station": "마두역", "type": "주거" },
+        { "name": "백석동", "slug": "baekseok-dong", "station": "백석역", "type": "주거·업무" },
+        { "name": "식사동", "slug": "siksa-dong", "station": "차량 이동", "type": "주거" },
+        { "name": "풍동", "slug": "pung-dong", "station": "풍산역", "type": "주거" }
+      ] },
     { "name": "일산서구", "slug": "ilsanseo-gu", "focus": "신도시·주거", "stations": "주엽역·대화역·탄현역",
       "char": "일산서구는 일산신도시 서부 주거단지와 킨텍스 일대를 아우르는 권역입니다. 전시 행사 기간 인근 숙소 이용이 늘어 사전 확인이 필요합니다.",
-      "dongs": [ { "name": "주엽동", "slug": "juyeop-dong" }, { "name": "탄현동", "slug": "tanhyeon-dong" } ] }
+      "dongs": [
+        { "name": "주엽동", "slug": "juyeop-dong", "station": "주엽역", "type": "상권·주거" },
+        { "name": "대화동", "slug": "daehwa-dong", "station": "대화역", "type": "신도시·전시" },
+        { "name": "탄현동", "slug": "tanhyeon-dong", "station": "탄현역", "type": "주거" },
+        { "name": "일산동", "slug": "ilsan-dong", "station": "일산역", "type": "주거·상권" },
+        { "name": "가좌동", "slug": "gajwa-dong", "station": "대화역", "type": "주거" }
+      ] }
   ] },
   { "city": "ansan", "gu": [
     { "name": "상록구", "slug": "sangnok-gu", "focus": "주거·대학가", "stations": "상록수역·한대앞역·중앙역",
       "char": "상록구는 안산 동부의 주거·대학가 권역입니다. 본오·사동 일대 대단지와 대학가가 결합돼 있어 정확한 단지 위치와 출입 방식 확인이 중요합니다.",
-      "dongs": [ { "name": "본오동", "slug": "bono-dong" }, { "name": "월피동", "slug": "wolpi-dong" }, { "name": "사동", "slug": "sa-dong" } ] },
+      "dongs": [
+        { "name": "본오동", "slug": "bono-dong", "station": "상록수역", "type": "주거" },
+        { "name": "사동", "slug": "sa-dong", "station": "한양대역", "type": "주거·대학가" },
+        { "name": "월피동", "slug": "wolpi-dong", "station": "한대앞역", "type": "주거" },
+        { "name": "성포동", "slug": "seongpo-dong", "station": "중앙역", "type": "주거·상권" },
+        { "name": "부곡동", "slug": "bugok-dong", "station": "상록수역", "type": "주거" }
+      ] },
     { "name": "단원구", "slug": "danwon-gu", "focus": "주거·역세권·산업", "stations": "중앙역·고잔역·초지역",
       "char": "단원구는 안산 서부의 역세권·주거·산업 권역입니다. 중앙역 상권과 고잔·선부 주거단지가 결합돼 있어 이용 장소별 확인 내용이 다릅니다.",
-      "dongs": [ { "name": "고잔동", "slug": "gojan-dong" }, { "name": "선부동", "slug": "seonbu-dong" } ] }
+      "dongs": [
+        { "name": "고잔동", "slug": "gojan-dong", "station": "고잔역", "type": "주거·상권" },
+        { "name": "선부동", "slug": "seonbu-dong", "station": "달미역", "type": "주거" },
+        { "name": "초지동", "slug": "choji-dong", "station": "초지역", "type": "역세권·주거" },
+        { "name": "원곡동", "slug": "wongok-dong", "station": "안산역", "type": "주거·상권" },
+        { "name": "와동", "slug": "wa-dong", "station": "중앙역", "type": "주거" }
+      ] }
   ] },
   { "city": "anyang", "gu": [
     { "name": "만안구", "slug": "manan-gu", "focus": "역세권·주거", "stations": "안양역·명학역",
       "char": "만안구는 안양역 상권과 구도심 주거가 결합된 권역입니다. 역세권 상권과 배후 주거단지의 이용 장소별 확인 내용이 다릅니다.",
-      "dongs": [ { "name": "안양동", "slug": "anyang-dong" } ] },
+      "dongs": [
+        { "name": "안양동", "slug": "anyang-dong", "station": "안양역", "type": "역세권·상권" },
+        { "name": "석수동", "slug": "seoksu-dong", "station": "석수역", "type": "주거" },
+        { "name": "박달동", "slug": "bakdal-dong", "station": "안양역", "type": "주거" }
+      ] },
     { "name": "동안구", "slug": "dongan-gu", "focus": "상권·신도시·주거", "stations": "범계역·평촌역·인덕원역",
       "char": "동안구는 평촌신도시 상권과 주거단지가 밀집한 안양 중심 권역입니다. 범계·평촌 상권 오피스텔과 대단지의 이용 장소별 확인 내용이 다릅니다.",
-      "dongs": [ { "name": "평촌동", "slug": "pyeongchon-dong" }, { "name": "범계동", "slug": "beomgye-dong" }, { "name": "비산동", "slug": "bisan-dong" }, { "name": "호계동", "slug": "hogye-dong" } ] }
+      "dongs": [
+        { "name": "평촌동", "slug": "pyeongchon-dong", "station": "평촌역", "type": "주거·상권" },
+        { "name": "범계동", "slug": "beomgye-dong", "station": "범계역", "type": "상권·주거" },
+        { "name": "비산동", "slug": "bisan-dong", "station": "명학역", "type": "주거" },
+        { "name": "호계동", "slug": "hogye-dong", "station": "인덕원역", "type": "주거" },
+        { "name": "관양동", "slug": "gwanyang-dong", "station": "인덕원역", "type": "주거·업무" }
+      ] }
   ] }
 ]
