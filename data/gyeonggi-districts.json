@@ -1,0 +1,191 @@
+[
+  { "name": "수원시", "slug": "suwon", "stations": "수원역·매교역·광교중앙역", "focus": "역세권·업무·신도시",
+    "char": "경기 남부 중심 도시로 수원역 상권, 인계동 업무권, 광교 신도시가 함께 있습니다. 권역에 따라 이동 기준과 이용 장소가 달라 정확한 방문 주소 확인이 중요합니다.",
+    "dongs": [
+      { "name": "인계동", "slug": "ingye-dong", "station": "매교역", "type": "업무·상권" },
+      { "name": "영통동", "slug": "yeongtong-dong", "station": "영통역", "type": "주거·업무" },
+      { "name": "광교동", "slug": "gwanggyo-dong", "station": "광교중앙역", "type": "신도시·업무" }
+    ] },
+  { "name": "성남시", "slug": "seongnam", "stations": "판교역·서현역·모란역", "focus": "업무·신도시·주거",
+    "char": "판교 IT 업무지구와 분당 신도시, 구도심이 공존합니다. 업무 빌딩은 보안 출입을, 신도시 주거단지는 방문 절차를 확인하는 것이 좋습니다.",
+    "dongs": [
+      { "name": "정자동", "slug": "jeongja-dong", "station": "정자역", "type": "업무·주거" },
+      { "name": "서현동", "slug": "seohyeon-dong", "station": "서현역", "type": "상권·주거" },
+      { "name": "수내동", "slug": "sunae-dong", "station": "수내역", "type": "주거" }
+    ] },
+  { "name": "용인시", "slug": "yongin", "stations": "수지구청역·기흥역·동백역", "focus": "신도시·주거",
+    "char": "수지·기흥 신도시와 넓은 주거 권역으로 이뤄져 있습니다. 도시 범위가 넓어 같은 용인이라도 이동 기준이 크게 달라집니다.",
+    "dongs": [
+      { "name": "죽전동", "slug": "jukjeon-dong", "station": "죽전역", "type": "주거·상권" },
+      { "name": "상현동", "slug": "sanghyeon-dong", "station": "상현역", "type": "주거" },
+      { "name": "동백동", "slug": "dongbaek-dong", "station": "초당역", "type": "주거" }
+    ] },
+  { "name": "고양시", "slug": "goyang", "stations": "대화역·정발산역·화정역", "focus": "신도시·주거",
+    "char": "일산 신도시와 킨텍스 일대를 중심으로 한 주거·전시 권역입니다. 단지 방문 절차와 전시 시설 인근 이동 기준을 확인하면 좋습니다.",
+    "dongs": [
+      { "name": "장항동", "slug": "janghang-dong", "station": "정발산역", "type": "주거·상권" },
+      { "name": "주엽동", "slug": "juyeop-dong", "station": "주엽역", "type": "주거" },
+      { "name": "화정동", "slug": "hwajeong-dong", "station": "화정역", "type": "주거·상권" }
+    ] },
+  { "name": "화성시", "slug": "hwaseong", "stations": "동탄역·병점역", "focus": "신도시·주거",
+    "char": "동탄신도시를 중심으로 빠르게 성장한 넓은 주거 권역입니다. 같은 동탄이라도 블록에 따라 위치 차이가 커 단지명·동·호수 확인이 중요합니다.",
+    "dongs": [
+      { "name": "반송동", "slug": "bansong-dong", "station": "동탄역", "type": "신도시·주거" },
+      { "name": "청계동", "slug": "cheonggye-dong", "station": "동탄역", "type": "신도시·주거" },
+      { "name": "병점동", "slug": "byeongjeom-dong", "station": "병점역", "type": "주거" }
+    ] },
+  { "name": "부천시", "slug": "bucheon", "stations": "부천역·상동역·중동역", "focus": "역세권·상권·주거",
+    "char": "서울과 인천 사이의 역세권·상권 권역입니다. 부천역 상권과 상동·중동 주거단지의 이용 장소별 확인 내용이 다릅니다.",
+    "dongs": [
+      { "name": "중동", "slug": "jung-dong", "station": "부천시청역", "type": "상권·주거" },
+      { "name": "상동", "slug": "sang-dong", "station": "상동역", "type": "상권·주거" },
+      { "name": "송내동", "slug": "songnae-dong", "station": "송내역", "type": "역세권·주거" }
+    ] },
+  { "name": "안산시", "slug": "ansan", "stations": "중앙역·초지역·고잔역", "focus": "주거·역세권",
+    "char": "중앙역 상권과 고잔·초지 주거단지가 결합된 권역입니다. 역세권과 주거단지의 출입 방식을 미리 확인하면 이동이 원활합니다.",
+    "dongs": [
+      { "name": "고잔동", "slug": "gojan-dong", "station": "고잔역", "type": "주거·상권" },
+      { "name": "본오동", "slug": "bono-dong", "station": "상록수역", "type": "주거" },
+      { "name": "선부동", "slug": "seonbu-dong", "station": "달미역", "type": "주거" }
+    ] },
+  { "name": "평택시", "slug": "pyeongtaek", "stations": "평택역·지제역", "focus": "역세권·산업·주거",
+    "char": "평택역 상권과 고덕신도시, 산업단지가 있는 넓은 권역입니다. 권역 간 이동 거리가 길어 추가 이동 여부 확인이 필요합니다.",
+    "dongs": [
+      { "name": "비전동", "slug": "bijeon-dong", "station": "평택역", "type": "주거·상권" },
+      { "name": "고덕동", "slug": "godeok-dong", "station": "지제역", "type": "신도시·주거" }
+    ] },
+  { "name": "안양시", "slug": "anyang", "stations": "범계역·평촌역·안양역", "focus": "역세권·상권·주거",
+    "char": "범계·평촌 상권과 안양역 일대가 결합된 권역입니다. 상권 인접 오피스텔과 주거단지의 확인 내용이 다릅니다.",
+    "dongs": [
+      { "name": "평촌동", "slug": "pyeongchon-dong", "station": "평촌역", "type": "주거·상권" },
+      { "name": "범계동", "slug": "beomgye-dong", "station": "범계역", "type": "상권·주거" },
+      { "name": "안양동", "slug": "anyang-dong", "station": "안양역", "type": "역세권·상권" }
+    ] },
+  { "name": "시흥시", "slug": "siheung", "stations": "오이도역·정왕역·시흥시청역", "focus": "신도시·주거",
+    "char": "배곧신도시와 정왕동 일대를 중심으로 한 주거 권역입니다. 신도시 단지 방문 절차와 공동현관 출입 방식을 확인하세요.",
+    "dongs": [
+      { "name": "정왕동", "slug": "jeongwang-dong", "station": "정왕역", "type": "주거" },
+      { "name": "배곧동", "slug": "baegot-dong", "station": "오이도역", "type": "신도시·주거" }
+    ] },
+  { "name": "김포시", "slug": "gimpo", "stations": "구래역·장기역·김포공항역", "focus": "신도시·주거",
+    "char": "한강신도시를 중심으로 한 주거 권역입니다. 김포골드라인 역세권 단지의 방문 절차를 확인하면 좋습니다.",
+    "dongs": [
+      { "name": "구래동", "slug": "gurae-dong", "station": "구래역", "type": "신도시·주거" },
+      { "name": "장기동", "slug": "janggi-dong", "station": "장기역", "type": "주거" }
+    ] },
+  { "name": "남양주시", "slug": "namyangju", "stations": "다산역·도농역·평내호평역", "focus": "신도시·주거",
+    "char": "다산·별내 신도시와 넓은 주거 권역으로 이뤄져 있습니다. 권역 간 거리가 멀어 정확한 단지 위치 확인이 중요합니다.",
+    "dongs": [
+      { "name": "다산동", "slug": "dasan-dong", "station": "다산역", "type": "신도시·주거" },
+      { "name": "별내동", "slug": "byeollae-dong", "station": "별내역", "type": "신도시·주거" }
+    ] },
+  { "name": "파주시", "slug": "paju", "stations": "운정역·금촌역", "focus": "신도시·주거",
+    "char": "운정신도시를 중심으로 한 주거 권역입니다. 신도시 단지가 넓어 단지명과 동·호수 확인이 필요합니다.",
+    "dongs": [
+      { "name": "운정동", "slug": "unjeong-dong", "station": "운정역", "type": "신도시·주거" },
+      { "name": "금촌동", "slug": "geumchon-dong", "station": "금촌역", "type": "주거·상권" }
+    ] },
+  { "name": "의정부시", "slug": "uijeongbu", "stations": "의정부역·회룡역·민락", "focus": "역세권·상권·주거",
+    "char": "의정부역 상권과 민락 신도시가 결합된 경기 북부 중심 권역입니다. 역세권과 신도시의 이용 장소별 확인 내용이 다릅니다.",
+    "dongs": [
+      { "name": "의정부동", "slug": "uijeongbu-dong", "station": "의정부역", "type": "역세권·상권" },
+      { "name": "민락동", "slug": "millak-dong", "station": "탑석역", "type": "신도시·주거" }
+    ] },
+  { "name": "하남시", "slug": "hanam", "stations": "미사역·하남검단산역·하남시청역", "focus": "신도시·주거",
+    "char": "미사·감일 신도시를 중심으로 한 주거 권역입니다. 신축 단지 방문 절차와 공동현관 출입 방식을 확인하면 좋습니다.",
+    "dongs": [
+      { "name": "미사동", "slug": "misa-dong", "station": "미사역", "type": "신도시·주거" },
+      { "name": "신장동", "slug": "sinjang-dong", "station": "하남시청역", "type": "주거·상권" }
+    ] },
+  { "name": "광명시", "slug": "gwangmyeong", "stations": "철산역·광명사거리역·광명역", "focus": "역세권·주거",
+    "char": "철산·광명사거리 상권과 KTX 광명역 일대가 있는 권역입니다. 역세권 오피스텔과 주거단지의 확인 내용이 다릅니다.",
+    "dongs": [
+      { "name": "철산동", "slug": "cheolsan-dong", "station": "철산역", "type": "상권·주거" },
+      { "name": "하안동", "slug": "haan-dong", "station": "광명사거리역", "type": "주거" }
+    ] },
+  { "name": "구리시", "slug": "guri", "stations": "구리역·갈매역", "focus": "주거·상권",
+    "char": "구리역 상권과 갈매지구 주거단지가 있는 권역입니다. 정확한 건물 위치와 출입 방식 확인이 이동에 도움이 됩니다.",
+    "dongs": [
+      { "name": "인창동", "slug": "inchang-dong", "station": "구리역", "type": "주거·상권" },
+      { "name": "갈매동", "slug": "galmae-dong", "station": "갈매역", "type": "신도시·주거" }
+    ] },
+  { "name": "군포시", "slug": "gunpo", "stations": "산본역·금정역", "focus": "역세권·주거",
+    "char": "산본신도시를 중심으로 한 주거 권역입니다. 역세권 단지의 방문 절차와 공동현관 출입 방식을 확인하세요.",
+    "dongs": [
+      { "name": "산본동", "slug": "sanbon-dong", "station": "산본역", "type": "역세권·주거" },
+      { "name": "당동", "slug": "dang-dong", "station": "군포역", "type": "주거" }
+    ] },
+  { "name": "오산시", "slug": "osan", "stations": "오산역·세마역", "focus": "주거·산업",
+    "char": "오산역 일대와 세교지구 주거단지가 있는 권역입니다. 산업단지 인근 이동 기준과 단지 방문 절차를 확인하면 좋습니다.",
+    "dongs": [
+      { "name": "원동", "slug": "won-dong", "station": "오산역", "type": "주거·상권" },
+      { "name": "세교동", "slug": "segyo-dong", "station": "오산역", "type": "신도시·주거" }
+    ] },
+  { "name": "의왕시", "slug": "uiwang", "stations": "의왕역·인덕원역", "focus": "주거",
+    "char": "인덕원 인접권과 내손동 주거단지가 있는 권역입니다. 인접 도시 이동이 잦아 정확한 위치 공유가 중요합니다.",
+    "dongs": [
+      { "name": "내손동", "slug": "naeson-dong", "station": "인덕원역", "type": "주거" },
+      { "name": "고천동", "slug": "gocheon-dong", "station": "의왕역", "type": "주거" }
+    ] },
+  { "name": "과천시", "slug": "gwacheon", "stations": "과천역·정부과천청사역·인덕원역", "focus": "행정·주거",
+    "char": "정부과천청사를 중심으로 한 행정·주거 권역입니다. 청사 일대 업무 시설과 주거단지의 확인 내용이 다릅니다.",
+    "dongs": [
+      { "name": "중앙동", "slug": "jungang-dong", "station": "과천역", "type": "행정·주거" },
+      { "name": "별양동", "slug": "byeolyang-dong", "station": "정부과천청사역", "type": "주거" }
+    ] },
+  { "name": "광주시", "slug": "gwangju-si", "stations": "경기광주역·태전", "focus": "주거",
+    "char": "태전·역동을 중심으로 한 주거 권역입니다. 도시 범위가 넓어 정확한 단지 위치와 이동 기준 확인이 필요합니다.",
+    "dongs": [
+      { "name": "역동", "slug": "yeok-dong", "station": "경기광주역", "type": "주거·상권" },
+      { "name": "태전동", "slug": "taejeon-dong", "station": "경기광주역", "type": "주거" }
+    ] },
+  { "name": "이천시", "slug": "icheon", "stations": "이천역·부발역", "focus": "주거·산업",
+    "char": "이천역 일대와 부발 산업권이 있는 권역입니다. 외곽 이동 거리가 길어 추가 이동 여부를 사전에 확인하는 것이 좋습니다.",
+    "dongs": [
+      { "name": "중리동", "slug": "jungni-dong", "station": "이천역", "type": "주거·상권" },
+      { "name": "부발읍", "slug": "bubal-eup", "station": "부발역", "type": "산업·주거" }
+    ] },
+  { "name": "안성시", "slug": "anseong", "stations": "안성 시내", "focus": "주거·외곽",
+    "char": "철도역이 없는 외곽 도시로 차량 이동이 기본인 권역입니다. 방문 주소와 추가 이동 여부를 미리 확인하는 것이 중요합니다.",
+    "dongs": [
+      { "name": "공도읍", "slug": "gongdo-eup", "station": "차량 이동", "type": "주거·산업" },
+      { "name": "안성동", "slug": "anseong-dong", "station": "차량 이동", "type": "주거·상권" }
+    ] },
+  { "name": "여주시", "slug": "yeoju", "stations": "여주역", "focus": "외곽·주거",
+    "char": "경강선 여주역 일대를 중심으로 한 외곽 주거 권역입니다. 이동 거리가 길어 추가 이동 여부 확인이 필요합니다.",
+    "dongs": [
+      { "name": "여흥동", "slug": "yeoheung-dong", "station": "여주역", "type": "주거·상권" }
+    ] },
+  { "name": "양평군", "slug": "yangpyeong", "stations": "양평역·용문역", "focus": "외곽·전원",
+    "char": "전원주택과 펜션이 많은 외곽 권역입니다. 차량 이동이 기본이라 정확한 주소와 추가 이동 여부 확인이 중요합니다.",
+    "dongs": [
+      { "name": "양평읍", "slug": "yangpyeong-eup", "station": "양평역", "type": "주거·전원" },
+      { "name": "용문면", "slug": "yongmun-myeon", "station": "용문역", "type": "전원·외곽" }
+    ] },
+  { "name": "양주시", "slug": "yangju", "stations": "양주역·덕정역·옥정", "focus": "신도시·주거",
+    "char": "옥정·회천 신도시를 중심으로 성장하는 주거 권역입니다. 신축 단지 방문 절차와 공동현관 출입 방식을 확인하세요.",
+    "dongs": [
+      { "name": "옥정동", "slug": "okjeong-dong", "station": "덕정역", "type": "신도시·주거" },
+      { "name": "회천동", "slug": "hoecheon-dong", "station": "덕계역", "type": "주거" }
+    ] },
+  { "name": "포천시", "slug": "pocheon", "stations": "포천 시내", "focus": "외곽·주거",
+    "char": "철도 접근이 제한적인 외곽 도시로 차량 이동이 기본입니다. 방문 주소와 추가 이동 여부를 사전에 확인해야 합니다.",
+    "dongs": [
+      { "name": "소흘읍", "slug": "soheul-eup", "station": "차량 이동", "type": "주거·외곽" }
+    ] },
+  { "name": "동두천시", "slug": "dongducheon", "stations": "동두천중앙역·지행역", "focus": "주거·외곽",
+    "char": "경기 북부 외곽의 역세권·주거 권역입니다. 이동 거리가 길 수 있어 추가 이동 여부 확인이 필요합니다.",
+    "dongs": [
+      { "name": "생연동", "slug": "saengyeon-dong", "station": "동두천중앙역", "type": "주거·상권" }
+    ] },
+  { "name": "가평군", "slug": "gapyeong", "stations": "가평역·청평역", "focus": "외곽·관광",
+    "char": "펜션과 관광지가 많은 외곽 권역입니다. 차량 이동이 기본이며 사전 예약과 추가 이동 여부 확인이 중요합니다.",
+    "dongs": [
+      { "name": "가평읍", "slug": "gapyeong-eup", "station": "가평역", "type": "주거·관광" }
+    ] },
+  { "name": "연천군", "slug": "yeoncheon", "stations": "연천역·전곡역", "focus": "외곽",
+    "char": "경기 최북단 외곽 권역으로 차량 이동이 기본입니다. 이동 거리가 길어 사전 확인과 추가 이동 여부 점검이 필요합니다.",
+    "dongs": [
+      { "name": "전곡읍", "slug": "jeongok-eup", "station": "전곡역", "type": "주거·외곽" }
+    ] }
+]

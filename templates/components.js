@@ -102,4 +102,22 @@ function linkCards(heading, eyebrow, cards) {
   </section>`;
 }
 
-module.exports = { breadcrumb, faqBlock, eeatBlock, policyNotice, linkCards };
+/* 히어로 (좌측 텍스트 · 우측 이미지) — 메인·지역·생활권 공통 */
+function hero({ eyebrow, h1, lede, cta = "", alt, img = "/assets/img/hero.webp" }) {
+  return `
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        ${eyebrow ? `<span class="eyebrow">${eyebrow}</span>` : ""}
+        <h1>${h1}</h1>
+        ${lede ? `<p class="lede">${lede}</p>` : ""}
+        ${cta ? `<div class="hero-cta">${cta}</div>` : ""}
+      </div>
+      <div class="hero-media">
+        <img src="${img}" alt="${alt || "RelaxNest 프리미엄 관리 공간 안내 이미지"}" width="1448" height="1086" decoding="async">
+      </div>
+    </div>
+  </section>`;
+}
+
+module.exports = { breadcrumb, faqBlock, eeatBlock, policyNotice, linkCards, hero };

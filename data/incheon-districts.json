@@ -1,0 +1,66 @@
+[
+  { "name": "중구", "slug": "jung-gu", "stations": "인천역·운서역·인천공항1터미널역", "focus": "원도심·공항·신도시",
+    "char": "개항기 원도심과 영종·운서 신도시, 인천공항이 함께 있는 권역입니다. 공항·도서 인접권은 사전 예약과 이동 기준이 달라 별도 확인이 필요합니다.",
+    "dongs": [
+      { "name": "운서동", "slug": "unseo-dong", "station": "운서역", "type": "신도시·공항" },
+      { "name": "영종동", "slug": "yeongjong-dong", "station": "영종역", "type": "신도시·주거" },
+      { "name": "신포동", "slug": "sinpo-dong", "station": "인천역", "type": "원도심·상권" }
+    ] },
+  { "name": "동구", "slug": "dong-gu", "stations": "동인천역·도원역", "focus": "원도심·주거",
+    "char": "인천 원도심에 속하는 주거 권역입니다. 노후 주거지와 골목이 많아 정확한 건물 위치와 출입 방식 확인이 중요합니다.",
+    "dongs": [
+      { "name": "송림동", "slug": "songnim-dong", "station": "동인천역", "type": "원도심·주거" },
+      { "name": "화수동", "slug": "hwasu-dong", "station": "도원역", "type": "주거" }
+    ] },
+  { "name": "미추홀구", "slug": "michuhol-gu", "stations": "주안역·도화역·인하대역", "focus": "원도심·역세권·대학가",
+    "char": "주안역 상권과 대학가, 주거지가 결합된 원도심 권역입니다. 역세권 상권과 주거단지의 이용 장소별 확인 내용이 다릅니다.",
+    "dongs": [
+      { "name": "주안동", "slug": "juan-dong", "station": "주안역", "type": "역세권·상권" },
+      { "name": "도화동", "slug": "dohwa-dong", "station": "도화역", "type": "주거·대학가" },
+      { "name": "용현동", "slug": "yonghyeon-dong", "station": "인하대역", "type": "주거·대학가" }
+    ] },
+  { "name": "연수구", "slug": "yeonsu-gu", "stations": "센트럴파크역·인천대입구역·연수역", "focus": "신도시·오피스텔·주거",
+    "char": "송도국제도시 신도시권과 연수 원도심이 함께 있는 권역입니다. 송도 고층 오피스텔·호텔은 보안 출입 절차 확인이 중요합니다.",
+    "dongs": [
+      { "name": "송도동", "slug": "songdo-dong", "station": "인천대입구역", "type": "신도시·오피스텔" },
+      { "name": "연수동", "slug": "yeonsu-dong", "station": "연수역", "type": "주거" },
+      { "name": "옥련동", "slug": "ongnyeon-dong", "station": "송도역", "type": "주거" }
+    ] },
+  { "name": "남동구", "slug": "namdong-gu", "stations": "인천시청역·예술회관역·간석역", "focus": "행정·업무·상권",
+    "char": "인천시청과 구월동 상권을 중심으로 한 행정·업무 권역입니다. 시청 일대 업무 시설과 상권 오피스텔의 확인 내용이 다릅니다.",
+    "dongs": [
+      { "name": "구월동", "slug": "guwol-dong", "station": "인천시청역", "type": "행정·상권" },
+      { "name": "논현동", "slug": "nonhyeon-dong", "station": "소래포구역", "type": "신도시·주거" },
+      { "name": "간석동", "slug": "ganseok-dong", "station": "간석역", "type": "주거" }
+    ] },
+  { "name": "부평구", "slug": "bupyeong-gu", "stations": "부평역·부평구청역·부평시장역", "focus": "원도심·역세권·상권",
+    "char": "부평역 환승 상권을 중심으로 한 원도심 권역입니다. 환승 수요가 많고 상권·주거가 밀집해 정확한 건물 위치 공유가 중요합니다.",
+    "dongs": [
+      { "name": "부평동", "slug": "bupyeong-dong", "station": "부평역", "type": "역세권·상권" },
+      { "name": "삼산동", "slug": "samsan-dong", "station": "삼산체육관역", "type": "주거·상권" },
+      { "name": "산곡동", "slug": "sangok-dong", "station": "동수역", "type": "주거" }
+    ] },
+  { "name": "계양구", "slug": "gyeyang-gu", "stations": "계산역·작전역·임학역", "focus": "주거",
+    "char": "계산·작전을 중심으로 한 주거 권역입니다. 아파트 단지와 빌라가 섞여 있어 정확한 주소와 공동현관 출입 방식 확인이 필요합니다.",
+    "dongs": [
+      { "name": "계산동", "slug": "gyesan-dong", "station": "계산역", "type": "주거·상권" },
+      { "name": "작전동", "slug": "jakjeon-dong", "station": "작전역", "type": "주거" }
+    ] },
+  { "name": "서구", "slug": "seo-gu", "stations": "청라국제도시역·검암역·아시아드경기장역", "focus": "신도시·주거",
+    "char": "청라국제도시와 검단신도시가 빠르게 성장하는 주거 권역입니다. 넓은 블록 구조로 정확한 단지명과 동·호수 확인이 중요합니다.",
+    "dongs": [
+      { "name": "청라동", "slug": "cheongna-dong", "station": "청라국제도시역", "type": "신도시·주거" },
+      { "name": "원당동", "slug": "wondang-dong", "station": "검단오류역", "type": "신도시·주거" },
+      { "name": "가정동", "slug": "gajeong-dong", "station": "가정역", "type": "주거" }
+    ] },
+  { "name": "강화군", "slug": "ganghwa-gun", "stations": "강화 시내", "focus": "외곽·도서",
+    "char": "철도가 없는 도서·외곽 권역으로 차량 이동이 기본입니다. 이동 거리가 길어 사전 예약과 추가 이동 여부 확인이 필요합니다.",
+    "dongs": [
+      { "name": "강화읍", "slug": "ganghwa-eup", "station": "차량 이동", "type": "외곽·주거" }
+    ] },
+  { "name": "옹진군", "slug": "ongjin-gun", "stations": "여객터미널 연계", "focus": "도서·외곽",
+    "char": "섬으로 이뤄진 도서 권역으로 선박 이동이 필요한 지역이 많습니다. 사전 예약과 이동 가능 여부를 반드시 먼저 확인해야 합니다.",
+    "dongs": [
+      { "name": "영흥면", "slug": "yeongheung-myeon", "station": "차량 이동", "type": "도서·외곽" }
+    ] }
+]

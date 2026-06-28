@@ -1,0 +1,178 @@
+[
+  { "name": "강남구", "slug": "gangnam-gu", "stations": "강남역·역삼역·선릉역·삼성역", "focus": "업무지구·오피스텔",
+    "char": "테헤란로를 중심으로 오피스와 오피스텔이 가장 밀집한 업무 권역입니다. 보안 게이트·카드키 출입 빌딩이 많아 방문자 출입 절차와 가능 시간을 먼저 확인하는 것이 중요합니다.",
+    "dongs": [
+      { "name": "역삼동", "slug": "yeoksam-dong", "station": "역삼역", "type": "업무·오피스텔" },
+      { "name": "삼성동", "slug": "samseong-dong", "station": "삼성역", "type": "업무·전시" },
+      { "name": "대치동", "slug": "daechi-dong", "station": "한티역", "type": "주거·학원" },
+      { "name": "논현동", "slug": "nonhyeon-dong", "station": "논현역", "type": "상권·오피스텔" },
+      { "name": "청담동", "slug": "cheongdam-dong", "station": "청담역", "type": "주거·상권" },
+      { "name": "도곡동", "slug": "dogok-dong", "station": "도곡역", "type": "주거" }
+    ] },
+  { "name": "서초구", "slug": "seocho-gu", "stations": "서초역·교대역·고속터미널역", "focus": "업무·주거",
+    "char": "법원·검찰청과 업무 시설, 대규모 아파트 단지가 공존하는 권역입니다. 업무지구는 출입 절차를, 주거단지는 동·라인별 공동현관 절차를 확인하는 것이 좋습니다.",
+    "dongs": [
+      { "name": "서초동", "slug": "seocho-dong", "station": "서초역", "type": "업무·주거" },
+      { "name": "반포동", "slug": "banpo-dong", "station": "고속터미널역", "type": "주거" },
+      { "name": "잠원동", "slug": "jamwon-dong", "station": "잠원역", "type": "주거" },
+      { "name": "방배동", "slug": "bangbae-dong", "station": "방배역", "type": "주거·상권" }
+    ] },
+  { "name": "송파구", "slug": "songpa-gu", "stations": "잠실역·석촌역·송파역", "focus": "주거·상권·호텔",
+    "char": "대규모 주거단지와 상권, 호텔이 함께 있는 권역입니다. 단지는 동·라인별 공동현관과 방문 차량 등록 절차가, 인근 호텔은 객실 출입 정책 확인이 필요합니다.",
+    "dongs": [
+      { "name": "잠실동", "slug": "jamsil-dong", "station": "잠실역", "type": "주거·상권" },
+      { "name": "문정동", "slug": "munjeong-dong", "station": "문정역", "type": "업무·주거" },
+      { "name": "가락동", "slug": "garak-dong", "station": "가락시장역", "type": "주거·상권" },
+      { "name": "방이동", "slug": "bangi-dong", "station": "방이역", "type": "주거·상권" }
+    ] },
+  { "name": "강동구", "slug": "gangdong-gu", "stations": "천호역·강동역·고덕역", "focus": "주거",
+    "char": "재건축 단지와 신축 아파트가 늘어나는 주거 중심 권역입니다. 단지별 방문 절차와 공동현관 출입 방식을 미리 확인하면 이동이 원활합니다.",
+    "dongs": [
+      { "name": "천호동", "slug": "cheonho-dong", "station": "천호역", "type": "주거·상권" },
+      { "name": "고덕동", "slug": "godeok-dong", "station": "고덕역", "type": "주거" },
+      { "name": "길동", "slug": "gil-dong", "station": "길동역", "type": "주거" }
+    ] },
+  { "name": "마포구", "slug": "mapo-gu", "stations": "홍대입구역·합정역·공덕역", "focus": "숙소·상권·업무",
+    "char": "홍대·합정 상권과 공덕 업무지구, 다양한 숙소가 섞여 있는 권역입니다. 숙소 이용 시 객실 출입 정책, 오피스텔 이용 시 관리 규정을 먼저 확인하세요.",
+    "dongs": [
+      { "name": "서교동", "slug": "seogyo-dong", "station": "홍대입구역", "type": "상권·숙소" },
+      { "name": "합정동", "slug": "hapjeong-dong", "station": "합정역", "type": "상권·숙소" },
+      { "name": "공덕동", "slug": "gongdeok-dong", "station": "공덕역", "type": "업무·주거" },
+      { "name": "상암동", "slug": "sangam-dong", "station": "디지털미디어시티역", "type": "업무" }
+    ] },
+  { "name": "서대문구", "slug": "seodaemun-gu", "stations": "신촌역·홍제역·충정로역", "focus": "주거·대학가",
+    "char": "대학가와 주거지가 결합된 권역입니다. 골목 상권과 빌라가 많아 정확한 건물 위치와 공동현관 출입 방식을 확인하는 것이 좋습니다.",
+    "dongs": [
+      { "name": "신촌동", "slug": "sinchon-dong", "station": "신촌역", "type": "대학가·상권" },
+      { "name": "홍제동", "slug": "hongje-dong", "station": "홍제역", "type": "주거" },
+      { "name": "남가좌동", "slug": "namgajwa-dong", "station": "가좌역", "type": "주거" }
+    ] },
+  { "name": "은평구", "slug": "eunpyeong-gu", "stations": "연신내역·불광역·구파발역", "focus": "주거",
+    "char": "대규모 주거단지와 뉴타운이 들어선 주거 중심 권역입니다. 단지 방문 절차와 공동현관 출입 방식 확인이 필요합니다.",
+    "dongs": [
+      { "name": "불광동", "slug": "bulgwang-dong", "station": "불광역", "type": "주거·상권" },
+      { "name": "응암동", "slug": "eungam-dong", "station": "응암역", "type": "주거" },
+      { "name": "진관동", "slug": "jingwan-dong", "station": "구파발역", "type": "주거·신도시" }
+    ] },
+  { "name": "영등포구", "slug": "yeongdeungpo-gu", "stations": "여의도역·영등포역·당산역", "focus": "업무·역세권",
+    "char": "여의도 금융·업무 시설과 영등포역 상권이 결합된 권역입니다. 여의도 빌딩은 보안 출입 절차를, 영등포역 일대는 이용 장소별 정책을 확인하세요.",
+    "dongs": [
+      { "name": "여의도동", "slug": "yeouido-dong", "station": "여의도역", "type": "업무·금융" },
+      { "name": "당산동", "slug": "dangsan-dong", "station": "당산역", "type": "주거·업무" },
+      { "name": "문래동", "slug": "mullae-dong", "station": "문래역", "type": "주거·상권" }
+    ] },
+  { "name": "구로구", "slug": "guro-gu", "stations": "구로디지털단지역·신도림역·구로역", "focus": "업무·주거",
+    "char": "디지털단지 업무 시설과 주거지가 함께 있는 권역입니다. 업무 빌딩은 방문자 출입 절차를, 주거단지는 공동현관 출입 방식을 확인하면 좋습니다.",
+    "dongs": [
+      { "name": "구로동", "slug": "guro-dong", "station": "구로디지털단지역", "type": "업무·주거" },
+      { "name": "신도림동", "slug": "sindorim-dong", "station": "신도림역", "type": "역세권·주거" },
+      { "name": "개봉동", "slug": "gaebong-dong", "station": "개봉역", "type": "주거" }
+    ] },
+  { "name": "금천구", "slug": "geumcheon-gu", "stations": "가산디지털단지역·독산역·금천구청역", "focus": "업무·주거",
+    "char": "가산디지털단지 업무 시설과 주거지가 결합된 권역입니다. 업무 빌딩은 출입 절차와 가능 시간을 확인하는 것이 중요합니다.",
+    "dongs": [
+      { "name": "가산동", "slug": "gasan-dong", "station": "가산디지털단지역", "type": "업무·오피스텔" },
+      { "name": "독산동", "slug": "doksan-dong", "station": "독산역", "type": "주거·상권" }
+    ] },
+  { "name": "강서구", "slug": "gangseo-gu", "stations": "마곡나루역·발산역·김포공항역", "focus": "업무·신도시",
+    "char": "마곡 업무·연구 단지와 신축 오피스텔이 밀집한 권역입니다. 고층 오피스텔과 업무 빌딩의 출입 절차를 미리 확인하세요.",
+    "dongs": [
+      { "name": "마곡동", "slug": "magok-dong", "station": "마곡나루역", "type": "업무·오피스텔" },
+      { "name": "화곡동", "slug": "hwagok-dong", "station": "화곡역", "type": "주거" },
+      { "name": "방화동", "slug": "banghwa-dong", "station": "방화역", "type": "주거" }
+    ] },
+  { "name": "양천구", "slug": "yangcheon-gu", "stations": "목동역·오목교역·신정네거리역", "focus": "주거",
+    "char": "목동 대규모 아파트 단지를 중심으로 한 주거 권역입니다. 단지별 방문 차량 등록과 공동현관 절차 확인이 필요합니다.",
+    "dongs": [
+      { "name": "목동", "slug": "mokdong", "station": "목동역", "type": "주거" },
+      { "name": "신정동", "slug": "sinjeong-dong", "station": "신정역", "type": "주거" },
+      { "name": "신월동", "slug": "sinwol-dong", "station": "신월동", "type": "주거" }
+    ] },
+  { "name": "관악구", "slug": "gwanak-gu", "stations": "신림역·봉천역·서울대입구역", "focus": "주거·대학가",
+    "char": "1인 가구와 대학가가 밀집한 주거 권역입니다. 빌라·원룸이 많아 정확한 건물 위치와 공동현관 출입 방식 확인이 중요합니다.",
+    "dongs": [
+      { "name": "신림동", "slug": "sillim-dong", "station": "신림역", "type": "주거·상권" },
+      { "name": "봉천동", "slug": "bongcheon-dong", "station": "서울대입구역", "type": "주거" }
+    ] },
+  { "name": "동작구", "slug": "dongjak-gu", "stations": "사당역·노량진역·이수역", "focus": "주거·역세권",
+    "char": "사당·이수 역세권과 노량진 상권이 있는 주거 권역입니다. 역세권 오피스텔과 주거단지의 이용 장소별 확인 내용이 다릅니다.",
+    "dongs": [
+      { "name": "사당동", "slug": "sadang-dong", "station": "사당역", "type": "역세권·주거" },
+      { "name": "노량진동", "slug": "noryangjin-dong", "station": "노량진역", "type": "상권·주거" },
+      { "name": "상도동", "slug": "sangdo-dong", "station": "상도역", "type": "주거" }
+    ] },
+  { "name": "성동구", "slug": "seongdong-gu", "stations": "성수역·왕십리역·서울숲역", "focus": "업무·주거",
+    "char": "성수동 지식산업센터와 신축 오피스텔, 왕십리 역세권이 결합된 권역입니다. 업무 시설은 출입 절차를, 오피스텔은 관리 규정을 확인하세요.",
+    "dongs": [
+      { "name": "성수동", "slug": "seongsu-dong", "station": "성수역", "type": "업무·오피스텔" },
+      { "name": "행당동", "slug": "haengdang-dong", "station": "왕십리역", "type": "역세권·주거" },
+      { "name": "옥수동", "slug": "oksu-dong", "station": "옥수역", "type": "주거" }
+    ] },
+  { "name": "광진구", "slug": "gwangjin-gu", "stations": "건대입구역·구의역·강변역", "focus": "주거·대학가",
+    "char": "건대입구 상권과 한강변 주거단지가 있는 권역입니다. 상권 인접 오피스텔과 주거단지의 출입 방식을 확인하면 좋습니다.",
+    "dongs": [
+      { "name": "화양동", "slug": "hwayang-dong", "station": "건대입구역", "type": "상권·대학가" },
+      { "name": "구의동", "slug": "guui-dong", "station": "구의역", "type": "주거·업무" },
+      { "name": "자양동", "slug": "jayang-dong", "station": "뚝섬유원지역", "type": "주거" }
+    ] },
+  { "name": "동대문구", "slug": "dongdaemun-gu", "stations": "청량리역·회기역·장한평역", "focus": "주거·상권",
+    "char": "청량리 역세권과 대학가, 주거지가 결합된 권역입니다. 역세권 상권과 주거단지의 이용 장소별 확인 내용을 미리 살펴보세요.",
+    "dongs": [
+      { "name": "전농동", "slug": "jeonnong-dong", "station": "청량리역", "type": "역세권·주거" },
+      { "name": "휘경동", "slug": "hwigyeong-dong", "station": "회기역", "type": "주거·대학가" },
+      { "name": "장안동", "slug": "jangan-dong", "station": "장한평역", "type": "주거" }
+    ] },
+  { "name": "중랑구", "slug": "jungnang-gu", "stations": "상봉역·면목역·중화역", "focus": "주거",
+    "char": "면목·상봉을 중심으로 한 주거 권역입니다. 빌라와 아파트가 섞여 있어 정확한 주소와 공동현관 출입 방식 확인이 필요합니다.",
+    "dongs": [
+      { "name": "면목동", "slug": "myeonmok-dong", "station": "면목역", "type": "주거" },
+      { "name": "상봉동", "slug": "sangbong-dong", "station": "상봉역", "type": "역세권·상권" }
+    ] },
+  { "name": "노원구", "slug": "nowon-gu", "stations": "노원역·상계역·중계역", "focus": "주거",
+    "char": "대규모 아파트 단지가 밀집한 대표적 주거 권역입니다. 상계동 단지가 넓어 정확한 단지명·동·호수와 방문 절차 확인이 중요합니다.",
+    "dongs": [
+      { "name": "상계동", "slug": "sanggye-dong", "station": "상계역", "type": "주거" },
+      { "name": "중계동", "slug": "junggye-dong", "station": "중계역", "type": "주거·학원" },
+      { "name": "공릉동", "slug": "gongneung-dong", "station": "공릉역", "type": "주거·대학가" }
+    ] },
+  { "name": "도봉구", "slug": "dobong-gu", "stations": "창동역·쌍문역·도봉산역", "focus": "주거",
+    "char": "창동·쌍문을 중심으로 한 주거 권역입니다. 단지별 방문 절차와 공동현관 출입 방식을 미리 확인하면 좋습니다.",
+    "dongs": [
+      { "name": "창동", "slug": "chang-dong", "station": "창동역", "type": "주거·상권" },
+      { "name": "쌍문동", "slug": "ssangmun-dong", "station": "쌍문역", "type": "주거" }
+    ] },
+  { "name": "강북구", "slug": "gangbuk-gu", "stations": "수유역·미아역·미아사거리역", "focus": "주거",
+    "char": "수유·미아 상권과 주거지가 결합된 권역입니다. 정확한 건물 위치와 출입 방식 확인이 이동에 도움이 됩니다.",
+    "dongs": [
+      { "name": "수유동", "slug": "suyu-dong", "station": "수유역", "type": "주거·상권" },
+      { "name": "미아동", "slug": "mia-dong", "station": "미아사거리역", "type": "주거·상권" }
+    ] },
+  { "name": "성북구", "slug": "seongbuk-gu", "stations": "성신여대입구역·길음역·한성대입구역", "focus": "주거·대학가",
+    "char": "대학가와 주거단지, 뉴타운이 결합된 권역입니다. 골목 주거지와 신축 단지의 이용 장소별 확인 내용이 다릅니다.",
+    "dongs": [
+      { "name": "동선동", "slug": "dongseon-dong", "station": "성신여대입구역", "type": "대학가·주거" },
+      { "name": "길음동", "slug": "gireum-dong", "station": "길음역", "type": "주거" },
+      { "name": "정릉동", "slug": "jeongneung-dong", "station": "정릉", "type": "주거" }
+    ] },
+  { "name": "종로구", "slug": "jongno-gu", "stations": "종로3가역·광화문역·종각역", "focus": "업무·도심",
+    "char": "광화문 업무지구와 도심 상권이 결합된 권역입니다. 도심 빌딩은 방문자 출입 절차와 가능 시간을 확인하는 것이 중요합니다.",
+    "dongs": [
+      { "name": "청운효자동", "slug": "cheongunhyoja-dong", "station": "경복궁역", "type": "주거·도심" },
+      { "name": "혜화동", "slug": "hyehwa-dong", "station": "혜화역", "type": "대학가·상권" },
+      { "name": "사직동", "slug": "sajik-dong", "station": "광화문역", "type": "업무·도심" }
+    ] },
+  { "name": "중구", "slug": "jung-gu", "stations": "명동역·을지로입구역·서울역", "focus": "업무·도심·호텔",
+    "char": "명동·을지로 도심 상권과 호텔, 업무 시설이 밀집한 권역입니다. 호텔은 객실 출입 정책을, 업무 빌딩은 출입 절차를 확인하세요.",
+    "dongs": [
+      { "name": "명동", "slug": "myeong-dong", "station": "명동역", "type": "상권·호텔" },
+      { "name": "을지로동", "slug": "euljiro-dong", "station": "을지로입구역", "type": "업무·도심" },
+      { "name": "회현동", "slug": "hoehyeon-dong", "station": "회현역", "type": "상권·호텔" }
+    ] },
+  { "name": "용산구", "slug": "yongsan-gu", "stations": "용산역·서울역·이태원역", "focus": "업무·주거·숙소",
+    "char": "용산역 업무·주거 복합 개발과 이태원·한남 숙소권이 결합된 권역입니다. 이용 장소(자택·호텔·오피스텔)에 따라 확인 내용이 다릅니다.",
+    "dongs": [
+      { "name": "한남동", "slug": "hannam-dong", "station": "한강진역", "type": "주거·숙소" },
+      { "name": "이태원동", "slug": "itaewon-dong", "station": "이태원역", "type": "상권·숙소" },
+      { "name": "이촌동", "slug": "ichon-dong", "station": "이촌역", "type": "주거" }
+    ] }
+]

@@ -13,9 +13,15 @@ const {
   faqBlock,
   eeatBlock,
   policyNotice,
-  linkCards
+  linkCards,
+  hero
 } = require("./templates/components");
 const REGIONS = require("./data/regions.json");
+
+// 행정구(구/시군/구군) + 행정동 데이터 부착
+REGIONS.seoul.districts = require("./data/seoul-districts.json");
+REGIONS.gyeonggi.districts = require("./data/gyeonggi-districts.json");
+REGIONS.incheon.districts = require("./data/incheon-districts.json");
 
 const DIST = path.join(__dirname, "dist");
 const pages = []; // {url, title, description, body, breadcrumb, faq, noindex}
@@ -50,19 +56,17 @@ function buildHome() {
   ];
 
   const body = `
-  <section class="hero">
-    <div class="wrap">
-      <span class="eyebrow">서울 · 경기 · 인천</span>
-      <h1>서울·경기·인천 출장마사지<br>수도권 지역별 예약 안내</h1>
-      <p class="lede">서울, 경기, 인천 주요 지역과 생활권, 지하철역, 자택·호텔·오피스텔 이용 기준을 한 번에 확인하세요. 전화예약 <a href="${SITE.phoneHref}">${SITE.phone}</a></p>
-      <div class="hero-cta">
+  ${hero({
+    eyebrow: "서울 · 경기 · 인천",
+    h1: "서울·경기·인천 출장마사지<br>수도권 지역별 예약 안내",
+    lede: `서울, 경기, 인천 주요 지역과 생활권, 지하철역, 자택·호텔·오피스텔 이용 기준을 한 번에 확인하세요. 전화예약 <a href="${SITE.phoneHref}">${SITE.phone}</a>`,
+    cta: `
         <a class="btn btn-gold" href="/seoul/">서울 보기</a>
         <a class="btn btn-ghost" href="/gyeonggi/">경기 보기</a>
         <a class="btn btn-ghost" href="/incheon/">인천 보기</a>
-        <a class="btn btn-ghost" href="/check/">예약 전 확인</a>
-      </div>
-    </div>
-  </section>
+        <a class="btn btn-ghost" href="/check/">예약 전 확인</a>`,
+    alt: "RelaxNest 수도권 프리미엄 관리 공간 안내 이미지"
+  })}
 
   <section class="section">
     <div class="wrap">
@@ -175,23 +179,23 @@ function buildRegions() {
       { name: r.name, url: `/${r.slug}/` }
     ];
 
+    const districtCards = r.districts.map((d) => ({
+      url: `/${r.slug}/${d.slug}/`,
+      title: `${d.name} 출장마사지`,
+      desc: `${d.focus} 중심 · ${d.stations}`
+    }));
+
     const hubBody = `
     ${breadcrumb(crumbs)}
-    <section class="section section--tight">
-      <div class="wrap">
-        <span class="eyebrow">${r.name} 지역 안내</span>
-        <h1>${r.h1}</h1>
-        <p class="lede">${r.intro}</p>
-      </div>
-    </section>
+    ${hero({
+      eyebrow: `${r.name} 지역 안내`,
+      h1: r.h1,
+      lede: r.intro,
+      cta: `<a class="btn btn-gold" href="/contact/">예약 문의</a><a class="btn btn-ghost" href="/check/">예약 전 확인</a>`,
+      alt: `${r.name} 방문형 관리 안내 이미지`
+    })}
 
-    <section class="section section--tight">
-      <div class="wrap">
-        <h2>${r.name} 주요 행정구역</h2>
-        ${chips(r.districts)}
-        <p class="price-desc" style="margin-top:var(--sp-4)">행정구역 전체를 한 번에 색인하지 않고, 본문 품질이 확보된 생활권·역세권부터 단계적으로 안내합니다.</p>
-      </div>
-    </section>
+    ${linkCards(`${r.name} 행정구역별 안내`, "구·시군별 바로가기", districtCards)}
 
     ${linkCards(`${r.name} 핵심 생활권`, "생활권별 안내", lifeCards)}
 
@@ -221,10 +225,15 @@ function buildRegions() {
       ];
       const lBody = `
       ${breadcrumb(lc)}
+      ${hero({
+        eyebrow: `${r.name} · ${l.focus}`,
+        h1: `${l.name} 출장마사지 생활권 안내`,
+        lede: l.desc,
+        cta: `<a class="btn btn-gold" href="/contact/">예약 문의</a>`,
+        alt: `${l.name} 생활권 방문형 관리 안내 이미지`
+      })}
       <section class="section section--tight">
         <div class="wrap">
-          <span class="eyebrow">${r.name} · ${l.focus}</span>
-          <h1>${l.name} 출장마사지 생활권 안내</h1>
           <div class="prose">
             <p>${l.body}</p>
             <h2>이용 장소별 확인사항</h2>
@@ -265,6 +274,150 @@ function buildRegions() {
         faq: lFaq,
         breadcrumb: lc
       });
+    });
+
+    // 행정구(구/시군/구군) + 행정동 페이지
+    r.districts.forEach((d) => buildDistrict(r, d));
+  });
+}
+
+/* 행정구 페이지 (색인 대상) + 소속 행정동 페이지 (대표동·noindex) */
+function buildDistrict(r, d) {
+  const base = `/${r.slug}/${d.slug}/`;
+  const crumbs = [
+    { name: "수도권 홈", url: "/" },
+    { name: r.name, url: `/${r.slug}/` },
+    { name: d.name, url: base }
+  ];
+  const dongs = d.dongs || [];
+  const dongCards = dongs.map((g) => ({
+    url: `${base}${g.slug}/`,
+    title: `${g.name} 출장마사지`,
+    desc: `${g.type} 권역 · 가까운 역 ${g.station}`
+  }));
+
+  const dFaq = [
+    { q: `${d.name} 어디까지 방문 가능한가요?`, a: `${d.name} 전역과 인접 권역을 기준으로 정확한 방문 주소와 가까운 역을 확인한 뒤 안내합니다.` },
+    { q: `${d.name}에서 무엇을 먼저 확인해야 하나요?`, a: `${d.focus} 중심 권역으로, 건물 출입 방식과 이용 장소(자택·호텔·오피스텔) 정책을 먼저 확인하면 좋습니다.` },
+    { q: "불법·선정적 서비스도 가능한가요?", a: "불법·선정적 서비스는 제공하거나 안내하지 않습니다." }
+  ];
+
+  const dongListHtml = dongs.length
+    ? `<ul>${dongs
+        .map(
+          (g) =>
+            `<li><a href="${base}${g.slug}/">${g.name}</a> — ${g.type}, 가까운 역 ${g.station}</li>`
+        )
+        .join("")}</ul>`
+    : "<p>대표 행정동 페이지는 본문 품질이 확보되는 대로 순차 공개합니다.</p>";
+
+  const dBody = `
+  ${breadcrumb(crumbs)}
+  ${hero({
+    eyebrow: `${r.name} · ${d.focus}`,
+    h1: `${d.name} 출장마사지 · 행정동별 예약 안내`,
+    lede: d.char,
+    cta: `<a class="btn btn-gold" href="/contact/">예약 문의</a><a class="btn btn-ghost" href="/${r.slug}/">${r.name} 전체</a>`,
+    alt: `${d.name} 방문형 관리 안내 이미지`
+  })}
+
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="prose">
+        <h2>${d.name} 개요</h2>
+        <p>${d.char} 번호동(예: 1·2동)은 개별 페이지를 만들지 않고 대표 행정동으로 묶어 안내하며, 출구별·노선별 페이지도 만들지 않습니다.</p>
+        <h2>대표 행정동</h2>
+        ${dongListHtml}
+        <h2>가까운 지하철역</h2>
+        <p>가까운 역은 <strong>${d.stations}</strong>입니다. 정확한 방문 주소와 가까운 출입구를 함께 공유하면 이동이 원활합니다.</p>
+        <h2>이용 장소별 확인사항</h2>
+        <p>${d.focus} 중심 권역으로, 자택은 공동현관 출입 방식, 오피스텔은 관리 규정과 방문 가능 시간, 호텔·숙소는 객실 출입 정책을 확인하세요. 업무지구가 포함된 경우 방문자 등록 절차와 출입 가능 시간을 함께 확인합니다.</p>
+        <h2>예약 전 체크리스트</h2>
+        <ul>
+          <li>정확한 방문 주소와 동·호수</li>
+          <li>공동현관·건물 출입 방식</li>
+          <li>이용 장소(자택·호텔·오피스텔) 정책</li>
+          <li>예약 가능 시간과 변경 기준</li>
+          <li><a href="/check/travel-fee/">추가 이동비 기준</a> · <a href="/check/privacy/">개인정보 처리 기준</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  ${dongCards.length ? linkCards(`${d.name} 행정동 바로가기`, "행정동별 안내", dongCards) : ""}
+
+  ${linkCards("관련 안내", "내부 링크", [
+    { url: `/${r.slug}/`, title: `${r.name} 전체 보기`, desc: `${r.name} 구·시군·생활권 허브` },
+    { url: "/use/", title: "이용 장소별 안내", desc: "자택·호텔·오피스텔·업무지구 기준" },
+    { url: "/check/", title: "예약 전 확인", desc: "방문 주소·이동비·개인정보 기준" }
+  ])}
+
+  ${policyNotice()}
+  ${faqBlock(dFaq)}
+  ${eeatBlock({
+    who: `이 페이지는 ${SITE.author}가 작성하고 ${SITE.reviewer}가 검수합니다.`,
+    how: `${d.name}의 공식 행정구역, ${d.stations} 등 가까운 역, ${d.focus} 중심 이용 장소 기준으로 구성했습니다.`,
+    why: `${d.name}에서 방문형 서비스를 찾는 사용자가 행정동·이동 기준을 안전하게 확인할 수 있도록 작성했습니다.`
+  })}`;
+
+  addPage({
+    url: base,
+    title: `${d.name} 출장마사지｜${r.name} 행정동별 예약 안내 · ${SITE.name}`,
+    description: `${d.name} ${d.focus} 중심 행정동·지하철역·이용 장소별 예약 전 확인 안내`.slice(0, 80),
+    body: dBody,
+    faq: dFaq,
+    breadcrumb: crumbs
+  });
+
+  // 행정동 페이지 (대표동) — 도어웨이 방지: 차별화 본문 + noindex, 사용자 탐색은 가능
+  dongs.forEach((g) => {
+    const gc = [...crumbs, { name: g.name, url: `${base}${g.slug}/` }];
+    const gFaq = [
+      { q: `${g.name}도 방문 가능한가요?`, a: `${g.name}(${d.name}) 일대를 기준으로 정확한 방문 주소와 가까운 역(${g.station})을 확인한 뒤 안내합니다.` },
+      { q: "건물 출입은 무엇을 확인하나요?", a: "공동현관·엘리베이터·관리 규정 등 건물 출입 방식과 방문 가능 시간을 확인합니다." }
+    ];
+    const gBody = `
+    ${breadcrumb(gc)}
+    ${hero({
+      eyebrow: `${d.name} · ${g.type}`,
+      h1: `${g.name} 출장마사지 예약 안내`,
+      lede: `${g.name}은 ${d.name}의 ${g.type} 권역으로 가까운 역은 ${g.station}입니다.`,
+      cta: `<a class="btn btn-gold" href="/contact/">예약 문의</a><a class="btn btn-ghost" href="${base}">${d.name} 전체</a>`,
+      alt: `${g.name} 방문형 관리 안내 이미지`
+    })}
+    <section class="section section--tight">
+      <div class="wrap">
+        <div class="prose">
+          <p>${g.name}은 ${d.name}에 속한 ${g.type} 성격의 권역입니다. ${d.char}</p>
+          <h2>이용 장소별 확인사항</h2>
+          <p>가까운 역은 <strong>${g.station}</strong>입니다. 자택은 공동현관 출입 방식, 오피스텔은 관리 규정과 방문 가능 시간, 호텔·숙소는 객실 출입 정책을 먼저 확인하세요. 출구별·노선별 안내 대신 정확한 방문 주소와 가까운 출입구를 공유하면 이동이 원활합니다.</p>
+          <h2>예약 전 체크리스트</h2>
+          <ul>
+            <li>정확한 방문 주소와 동·호수</li>
+            <li>공동현관·건물 출입 방식</li>
+            <li>예약 가능 시간과 변경 기준</li>
+            <li><a href="/check/privacy/">개인정보 처리 기준</a> 확인</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    ${linkCards("관련 안내", "내부 링크", [
+      { url: base, title: `${d.name} 전체 보기`, desc: `${d.name} 행정동·생활권 안내` },
+      { url: `/${r.slug}/`, title: `${r.name} 전체 보기`, desc: `${r.name} 구·시군 허브` },
+      { url: "/check/", title: "예약 전 확인", desc: "방문 주소·이동비·개인정보 기준" }
+    ])}
+    ${policyNotice()}
+    ${faqBlock(gFaq)}
+    ${eeatBlock()}`;
+
+    addPage({
+      url: `${base}${g.slug}/`,
+      title: `${g.name} 출장마사지｜${d.name} 예약 안내 · ${SITE.name}`,
+      description: `${g.name}(${d.name}) ${g.type} 권역 방문형 관리 예약 전 확인 안내`.slice(0, 80),
+      body: gBody,
+      faq: gFaq,
+      breadcrumb: gc,
+      noindex: true
     });
   });
 }

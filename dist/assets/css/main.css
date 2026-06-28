@@ -238,30 +238,77 @@ p {
   color: var(--c-gold-300);
 }
 
-/* ---------- 히어로 ---------- */
+/* ---------- 히어로 (좌측 텍스트 · 우측 이미지) ---------- */
 .hero {
   position: relative;
   background: var(--grad-hero);
   border-bottom: 1px solid var(--c-line);
   overflow: hidden;
 }
-.hero .wrap {
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: var(--sp-7);
+  align-items: center;
   padding-top: var(--sp-8);
   padding-bottom: var(--sp-8);
-  text-align: center;
+}
+.hero-copy {
+  text-align: left;
 }
 .hero h1 {
-  font-size: clamp(2rem, 5vw, var(--fs-4xl));
+  font-size: clamp(1.9rem, 4.4vw, var(--fs-4xl));
   margin-bottom: var(--sp-4);
 }
-.hero .lede {
-  margin: 0 auto var(--sp-6);
+.hero-copy .lede {
+  margin: 0 0 var(--sp-6);
 }
 .hero-cta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--sp-3);
-  justify-content: center;
+  justify-content: flex-start;
+}
+.hero-media {
+  position: relative;
+}
+.hero-media img {
+  width: 100%;
+  aspect-ratio: 1448 / 1086;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--c-line);
+  box-shadow: var(--shadow-pop);
+}
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(8, 12, 22, 0) 55%, rgba(8, 12, 22, 0.35));
+  pointer-events: none;
+}
+@media (max-width: 920px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-5);
+    text-align: center;
+  }
+  .hero-copy {
+    text-align: center;
+  }
+  .hero-copy .lede {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-cta {
+    justify-content: center;
+  }
+  .hero-media {
+    order: -1;
+    max-width: 520px;
+    margin: 0 auto;
+  }
 }
 
 /* ---------- 카드 / 그리드 ---------- */
