@@ -1,0 +1,6 @@
+# Cloudflare Pages 설정
+# 생성된 사이트는 dist/ 에 있으므로 출력 디렉터리를 dist로 지정한다.
+# (대시보드 설정 없이 이 파일만으로 Pages가 dist/를 루트로 서빙)
+name = "relaxnest"
+pages_build_output_dir = "dist"
+compatibility_date = "2025-01-01"
