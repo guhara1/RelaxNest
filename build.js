@@ -16,7 +16,8 @@ const {
   linkCards,
   hero,
   pricing,
-  linkColumns
+  linkColumns,
+  reviewsBlock
 } = require("./templates/components");
 const REGIONS = require("./data/regions.json");
 
@@ -145,6 +146,8 @@ function buildHome() {
     </div>
   </section>
 
+  ${reviewsBlock(6)}
+
   ${linkColumns("수도권 인기 지역·주제 바로가기", "롱테일 내부링크", [
     {
       title: "인기 지역",
@@ -202,6 +205,7 @@ function buildHome() {
     description: "서울·경기·인천 출장마사지 생활권·지하철역·이용 장소별 예약 전 확인 안내",
     body,
     faq,
+    reviews: true,
     breadcrumb: [{ name: "수도권 홈", url: "/" }]
   });
 }
@@ -256,6 +260,8 @@ function buildRegions() {
       desc: `${s.lines} · ${s.focus}`
     })).concat([{ url: `/${r.slug}/station/`, title: `${r.name} 역세권 전체`, desc: "주요 지하철역 역세권 안내 모음" }]))}
 
+    ${reviewsBlock(6)}
+
     ${linkColumns(`${r.name} 인기 주제·이용 가이드`, "롱테일 내부링크", [
       {
         title: `${r.name} 인기 생활권`,
@@ -302,6 +308,7 @@ function buildRegions() {
       description: r.desc,
       body: hubBody,
       faq: hubFaq,
+      reviews: true,
       breadcrumb: crumbs
     });
 

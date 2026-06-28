@@ -1,6 +1,37 @@
 "use strict";
 
 const SITE = require("../data/site.json");
+const REVIEWS = require("../data/reviews.json");
+
+function stars(n) {
+  const full = "★".repeat(n);
+  const empty = "☆".repeat(5 - n);
+  return `<span class="stars" aria-label="${n}점">${full}<span class="stars-off">${empty}</span></span>`;
+}
+
+/* 고객 후기 + 평점 섹션 */
+function reviewsBlock(limit) {
+  const items = REVIEWS.items.slice(0, limit || 6);
+  const cards = items
+    .map(
+      (r) => `
+      <figure class="review-card">
+        <div class="review-top">${stars(r.rating)}<span class="review-area">${r.area}</span></div>
+        <blockquote>${r.text}</blockquote>
+        <figcaption>${r.author} · <time datetime="${r.date}">${r.date.replace(/-/g, ".")}</time></figcaption>
+      </figure>`
+    )
+    .join("");
+  return `
+  <section class="section section--tight">
+    <div class="wrap">
+      <span class="eyebrow">고객 후기 · 평점</span>
+      <h2>이용 후기 <span class="rating-badge">★ ${REVIEWS.ratingValue} / 5 · ${REVIEWS.reviewCount}건</span></h2>
+      <p class="lede">RelaxNest를 이용한 고객님들의 후기입니다.</p>
+      <div class="grid grid-3" style="margin-top:var(--sp-5)">${cards}</div>
+    </div>
+  </section>`;
+}
 
 /* 브레드크럼 HTML (스키마는 layout에서 별도 생성) */
 function breadcrumb(crumbs) {
@@ -181,4 +212,4 @@ function linkColumns(heading, eyebrow, groups) {
   </section>`;
 }
 
-module.exports = { breadcrumb, faqBlock, eeatBlock, policyNotice, linkCards, hero, pricing, linkColumns };
+module.exports = { breadcrumb, faqBlock, eeatBlock, policyNotice, linkCards, hero, pricing, linkColumns, reviewsBlock };

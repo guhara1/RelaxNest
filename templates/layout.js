@@ -1,6 +1,7 @@
 "use strict";
 
 const SITE = require("../data/site.json");
+const REVIEWS = require("../data/reviews.json");
 
 /* ---------- 공통 헤더 내비게이션 (드롭다운: 지역/생활권/지하철역/이용장소/예약전확인/운영기준) ---------- */
 function header() {
@@ -162,9 +163,9 @@ function websiteSchema() {
   };
 }
 
-/* Service + 실제 요금(Offer) — 요금표가 있는 페이지에 적용. 가짜 후기/평점은 사용하지 않음 */
-function serviceSchema(page) {
-  return {
+/* Service + 실제 요금(Offer) + 평점/후기(AggregateRating·Review) */
+function serviceSchema(page, includeReviews) {
+  const s = {
     "@context": "https://schema.org",
     "@type": "Service",
     serviceType: "방문형 관리 서비스 (출장마사지·홈타이)",
@@ -192,8 +193,25 @@ function serviceSchema(page) {
         { "@type": "Offer", name: "90분 코스", price: "150000", priceCurrency: "KRW" },
         { "@type": "Offer", name: "120분 코스", price: "180000", priceCurrency: "KRW" }
       ]
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: REVIEWS.ratingValue,
+      reviewCount: REVIEWS.reviewCount,
+      bestRating: "5",
+      worstRating: "1"
     }
   };
+  if (includeReviews) {
+    s.review = REVIEWS.items.map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.author },
+      datePublished: r.date,
+      reviewRating: { "@type": "Rating", ratingValue: String(r.rating), bestRating: "5", worstRating: "1" },
+      reviewBody: r.text
+    }));
+  }
+  return s;
 }
 
 function breadcrumbSchema(crumbs) {
@@ -255,7 +273,7 @@ function render(page) {
   if (page.url === "/") schemas.push(websiteSchema());
   // 요금표가 있는 페이지 → Service + 실제 요금(Offer) 스키마
   if (page.body && page.body.indexOf("관리 시간 기준 기본 금액") !== -1) {
-    schemas.push(serviceSchema(page));
+    schemas.push(serviceSchema(page, !!page.reviews));
   }
   if (page.breadcrumb && page.breadcrumb.length) {
     schemas.push(breadcrumbSchema(page.breadcrumb));
