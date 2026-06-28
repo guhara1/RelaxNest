@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 
+# 주요 검색엔진 명시 허용
+User-agent: Googlebot
+Allow: /
+User-agent: Yeti
+Allow: /
+User-agent: bingbot
+Allow: /
+
 Sitemap: https://relaxnest.pages.dev/sitemap.xml
+Sitemap: https://relaxnest.pages.dev/rss.xml

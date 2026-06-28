@@ -306,8 +306,10 @@ function render(page) {
 <meta name="twitter:title" content="${page.title}">
 <meta name="twitter:description" content="${desc}">
 <meta name="twitter:image" content="${ogImage}">
+${page.url === "/" && SITE.naverVerification ? `<meta name="naver-site-verification" content="${SITE.naverVerification}">` : ""}
 <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/img/favicon.svg">
+<link rel="alternate" type="application/rss+xml" title="${SITE.name} 업데이트" href="/rss.xml">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="/assets/css/tokens.css">
 <link rel="stylesheet" href="/assets/css/main.css">

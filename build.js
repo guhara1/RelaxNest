@@ -910,13 +910,15 @@ function writeAll() {
   // assets
   copyDir(path.join(__dirname, "assets"), path.join(DIST, "assets"));
 
-  // sitemap (noindex 제외)
-  const urls = pages
-    .filter((p) => !p.noindex)
-    .map(
-      (p) =>
-        `  <url><loc>${SITE.baseUrl}${p.url}</loc><changefreq>weekly</changefreq></url>`
-    )
+  const lastmod = new Date().toISOString().slice(0, 10);
+  const indexed = pages.filter((p) => !p.noindex);
+
+  // sitemap.xml (noindex 제외, lastmod 포함)
+  const urls = indexed
+    .map((p) => {
+      const pr = p.url === "/" ? "1.0" : p.url.split("/").length <= 3 ? "0.8" : "0.6";
+      return `  <url><loc>${SITE.baseUrl}${p.url}</loc><lastmod>${lastmod}</lastmod><changefreq>weekly</changefreq><priority>${pr}</priority></url>`;
+    })
     .join("\n");
   fs.writeFileSync(
     path.join(DIST, "sitemap.xml"),
@@ -924,14 +926,42 @@ function writeAll() {
     "utf8"
   );
 
-  // robots
+  // urls.txt — IndexNow 일괄 통보용 평문 목록
   fs.writeFileSync(
-    path.join(DIST, "robots.txt"),
-    `User-agent: *\nAllow: /\n\nSitemap: ${SITE.baseUrl}/sitemap.xml\n`,
+    path.join(DIST, "urls.txt"),
+    indexed.map((p) => SITE.baseUrl + p.url).join("\n") + "\n",
     "utf8"
   );
 
-  console.log(`✓ ${pages.length} pages → dist/`);
+  // rss.xml — 색인 대상 페이지 피드 (네이버·구글 발견 가속)
+  const rssItems = indexed
+    .slice(0, 200)
+    .map(
+      (p) =>
+        `    <item><title>${escapeXml(p.title)}</title><link>${SITE.baseUrl}${p.url}</link><guid>${SITE.baseUrl}${p.url}</guid><description>${escapeXml(p.description || "")}</description></item>`
+    )
+    .join("\n");
+  fs.writeFileSync(
+    path.join(DIST, "rss.xml"),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel>\n    <title>${SITE.name} 업데이트</title>\n    <link>${SITE.baseUrl}/</link>\n    <description>서울·경기·인천 수도권 지역 안내 업데이트</description>\n    <language>ko</language>\n${rssItems}\n</channel></rss>\n`,
+    "utf8"
+  );
+
+  // IndexNow 키 파일 (사이트 루트에 <key>.txt)
+  fs.writeFileSync(path.join(DIST, `${SITE.indexNowKey}.txt`), SITE.indexNowKey + "\n", "utf8");
+
+  // robots.txt (sitemap + rss + 모든 크롤러 허용)
+  fs.writeFileSync(
+    path.join(DIST, "robots.txt"),
+    `User-agent: *\nAllow: /\n\n# 주요 검색엔진 명시 허용\nUser-agent: Googlebot\nAllow: /\nUser-agent: Yeti\nAllow: /\nUser-agent: bingbot\nAllow: /\n\nSitemap: ${SITE.baseUrl}/sitemap.xml\nSitemap: ${SITE.baseUrl}/rss.xml\n`,
+    "utf8"
+  );
+
+  console.log(`✓ ${pages.length} pages → dist/ (sitemap ${indexed.length}, rss, IndexNow key)`);
+}
+
+function escapeXml(s) {
+  return String(s).replace(/[<>&'"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", "'": "&apos;", '"': "&quot;" }[c]));
 }
 
 /* ---------- run ---------- */
