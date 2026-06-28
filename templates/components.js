@@ -160,4 +160,25 @@ function pricing(opts = {}) {
   </section>`;
 }
 
-module.exports = { breadcrumb, faqBlock, eeatBlock, policyNotice, linkCards, hero, pricing };
+/* 롱테일 내부링크 허브 (열 단위 링크 목록) */
+function linkColumns(heading, eyebrow, groups) {
+  const cols = groups
+    .map(
+      (g) => `
+      <div>
+        <h3>${g.title}</h3>
+        <ul>${g.links.map((l) => `<li><a href="${l.url}">${l.text}</a></li>`).join("")}</ul>
+      </div>`
+    )
+    .join("");
+  return `
+  <section class="section section--tight">
+    <div class="wrap">
+      ${eyebrow ? `<span class="eyebrow">${eyebrow}</span>` : ""}
+      <h2>${heading}</h2>
+      <div class="link-cols">${cols}</div>
+    </div>
+  </section>`;
+}
+
+module.exports = { breadcrumb, faqBlock, eeatBlock, policyNotice, linkCards, hero, pricing, linkColumns };

@@ -15,7 +15,8 @@ const {
   policyNotice,
   linkCards,
   hero,
-  pricing
+  pricing,
+  linkColumns
 } = require("./templates/components");
 const REGIONS = require("./data/regions.json");
 
@@ -144,6 +145,53 @@ function buildHome() {
     </div>
   </section>
 
+  ${linkColumns("수도권 인기 지역·주제 바로가기", "롱테일 내부링크", [
+    {
+      title: "인기 지역",
+      links: [
+        { url: "/seoul/gangnam-gu/", text: "강남구 행정동 안내" },
+        { url: "/gyeonggi/seongnam/bundang-gu/", text: "분당구 행정동 안내" },
+        { url: "/incheon/yeonsu-gu/", text: "송도·연수구 안내" },
+        { url: "/seoul/songpa-gu/", text: "잠실·송파구 안내" },
+        { url: "/gyeonggi/hwaseong/", text: "동탄·화성시 안내" },
+        { url: "/incheon/bupyeong-gu/", text: "부평구 행정동 안내" }
+      ]
+    },
+    {
+      title: "인기 역세권",
+      links: [
+        { url: "/seoul/station/gangnam-station/", text: "강남역 역세권 안내" },
+        { url: "/seoul/station/hongik-univ-station/", text: "홍대입구역 역세권 안내" },
+        { url: "/gyeonggi/station/suwon-station/", text: "수원역 역세권 안내" },
+        { url: "/gyeonggi/station/pangyo-station/", text: "판교역 역세권 안내" },
+        { url: "/incheon/station/incheon-univ-station/", text: "송도 인천대입구역 안내" },
+        { url: "/incheon/station/bupyeong-station/", text: "부평역 역세권 안내" }
+      ]
+    },
+    {
+      title: "이용 장소별 안내",
+      links: [
+        { url: "/use/home/", text: "자택 방문 이용 안내" },
+        { url: "/use/hotel/", text: "호텔·숙소 이용 안내" },
+        { url: "/use/officetel/", text: "오피스텔 이용 안내" },
+        { url: "/use/business-district/", text: "업무지구 이용 안내" },
+        { url: "/use/airport-island/", text: "공항·도서 지역 안내" },
+        { url: "/use/night/", text: "야간 예약 이용 안내" }
+      ]
+    },
+    {
+      title: "예약 전 가이드",
+      links: [
+        { url: "/check/address/", text: "방문 주소 확인 방법" },
+        { url: "/check/building-access/", text: "건물 출입 방식 확인" },
+        { url: "/check/travel-fee/", text: "추가 이동비 기준" },
+        { url: "/check/time/", text: "예약 가능 시간 안내" },
+        { url: "/check/privacy/", text: "개인정보 처리 기준" },
+        { url: "/policy/illegal-notice/", text: "불법·선정적 서비스 불가" }
+      ]
+    }
+  ])}
+
   ${policyNotice()}
   ${faqBlock(faq)}
   ${eeatBlock()}`;
@@ -207,6 +255,42 @@ function buildRegions() {
       title: s.name,
       desc: `${s.lines} · ${s.focus}`
     })).concat([{ url: `/${r.slug}/station/`, title: `${r.name} 역세권 전체`, desc: "주요 지하철역 역세권 안내 모음" }]))}
+
+    ${linkColumns(`${r.name} 인기 주제·이용 가이드`, "롱테일 내부링크", [
+      {
+        title: `${r.name} 인기 생활권`,
+        links: r.life.slice(0, 6).map((l) => ({ url: `/${r.slug}/life/${l.slug}/`, text: `${l.name} 생활권 안내` }))
+      },
+      {
+        title: "이용 장소별 안내",
+        links: [
+          { url: "/use/home/", text: "자택 방문 이용 안내" },
+          { url: "/use/hotel/", text: "호텔·숙소 이용 안내" },
+          { url: "/use/officetel/", text: "오피스텔 이용 안내" },
+          { url: "/use/business-district/", text: "업무지구 이용 안내" },
+          { url: "/use/airport-island/", text: "공항·도서 지역 안내" }
+        ]
+      },
+      {
+        title: "예약 전 가이드",
+        links: [
+          { url: "/check/address/", text: "방문 주소 확인 방법" },
+          { url: "/check/building-access/", text: "건물 출입 방식 확인" },
+          { url: "/check/travel-fee/", text: "추가 이동비 기준" },
+          { url: "/check/privacy/", text: "개인정보 처리 기준" }
+        ]
+      },
+      {
+        title: "다른 수도권 지역",
+        links: Object.values(REGIONS)
+          .filter((o) => o.slug !== r.slug)
+          .map((o) => ({ url: `/${o.slug}/`, text: `${o.name} 지역 전체 안내` }))
+          .concat([
+            { url: `/${r.slug}/station/`, text: `${r.name} 역세권 전체` },
+            { url: "/contact/", text: "전화·텔레그램 예약 문의" }
+          ])
+      }
+    ])}
 
     ${policyNotice()}
     ${faqBlock(hubFaq)}

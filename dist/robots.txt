@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://relaxnest.co.kr/sitemap.xml
+Sitemap: https://relaxnest.pages.dev/sitemap.xml

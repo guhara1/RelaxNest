@@ -137,12 +137,61 @@ function organizationSchema() {
     url: SITE.baseUrl + "/",
     telephone: SITE.phone,
     description: "서울·경기·인천 수도권 방문형 관리 서비스 지역 안내",
+    logo: SITE.baseUrl + "/assets/img/favicon.svg",
+    image: SITE.baseUrl + (SITE.ogImage || "/assets/img/og-default.svg"),
     areaServed: ["서울특별시", "경기도", "인천광역시"],
+    sameAs: [SITE.telegram.build].filter(Boolean),
     contactPoint: {
       "@type": "ContactPoint",
       telephone: SITE.phone,
       contactType: "reservations",
       availableLanguage: "Korean"
+    }
+  };
+}
+
+/* WebSite (홈 전용) */
+function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.name,
+    url: SITE.baseUrl + "/",
+    inLanguage: "ko-KR",
+    publisher: { "@type": "Organization", name: SITE.name, url: SITE.baseUrl + "/" }
+  };
+}
+
+/* Service + 실제 요금(Offer) — 요금표가 있는 페이지에 적용. 가짜 후기/평점은 사용하지 않음 */
+function serviceSchema(page) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "방문형 관리 서비스 (출장마사지·홈타이)",
+    name: page.serviceName || page.title,
+    url: SITE.baseUrl + page.url,
+    provider: {
+      "@type": "Organization",
+      name: SITE.name,
+      telephone: SITE.phone,
+      url: SITE.baseUrl + "/"
+    },
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "서울특별시" },
+      { "@type": "AdministrativeArea", name: "경기도" },
+      { "@type": "AdministrativeArea", name: "인천광역시" }
+    ],
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "KRW",
+      lowPrice: "90000",
+      highPrice: "180000",
+      offerCount: "3",
+      offers: [
+        { "@type": "Offer", name: "60분 코스", price: "90000", priceCurrency: "KRW" },
+        { "@type": "Offer", name: "90분 코스", price: "150000", priceCurrency: "KRW" },
+        { "@type": "Offer", name: "120분 코스", price: "180000", priceCurrency: "KRW" }
+      ]
     }
   };
 }
@@ -203,6 +252,11 @@ function render(page) {
 
   // 스키마 조립
   const schemas = [organizationSchema(), webPageSchema(page)];
+  if (page.url === "/") schemas.push(websiteSchema());
+  // 요금표가 있는 페이지 → Service + 실제 요금(Offer) 스키마
+  if (page.body && page.body.indexOf("관리 시간 기준 기본 금액") !== -1) {
+    schemas.push(serviceSchema(page));
+  }
   if (page.breadcrumb && page.breadcrumb.length) {
     schemas.push(breadcrumbSchema(page.breadcrumb));
   }
